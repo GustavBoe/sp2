@@ -1,0 +1,26 @@
+{
+  "name": "sp2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "dev": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+  "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavBoe/sp2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GustavBoe/sp2/issues"
+  },
+  "homepage": "https://github.com/GustavBoe/sp2#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}

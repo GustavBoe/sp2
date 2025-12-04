@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Lexend:wght@100..900&family=Livvic&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-livvic: "Livvic";
+  --font-lexend: "Lexend", sans-serif;
+  --font-commisioner: "Commisioner", sans-serif;
+}
