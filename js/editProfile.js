@@ -1,8 +1,17 @@
 import { get, put } from "./api/apiClient.js";
 
-import { PARAMETER_ID, USER_ENDPOINT } from "./const/const.js";
+import {
+  backToProfile,
+  profileName,
+  PARAMETER_ID,
+  USER_ENDPOINT,
+} from "./const/const.js";
 
 const profileForm = document.getElementById("profile-form");
+
+backToProfile.addEventListener("click", () => {
+  location.href = `./index.html?id=${profileName}`;
+});
 async function fillProfileFields() {
   const profileResponse = await get(USER_ENDPOINT);
   const profileData = profileResponse.data;

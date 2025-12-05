@@ -2,6 +2,7 @@
 
 import { getFromLocalStorage } from "../storage/localstorage.js";
 export const profileName = getFromLocalStorage("profileName");
+
 //Endpoints
 
 export const BASE_URL = "https://v2.api.noroff.dev";
@@ -32,8 +33,15 @@ export const SPECIFIC_LISTING_URL =
 export const placeholderImage = "https://i.imghippo.com/files/sE6922GH.webp";
 
 // Listings
+
 export const specificListing = document.getElementById("listing");
 
 // Components
-
+export const showMoreLoader = document.getElementById("show-more-loader");
+export const showMoreButton = document.getElementById("show-more-button");
+export const backToProfile = document.getElementById("back-to-profile");
+export const editProfileButton = document.getElementById("edit-profile-button");
 export const deleteButton = document.getElementById("delete-button");
+
+// Containers
+export const listingsContainer = document.getElementById("listings-container");

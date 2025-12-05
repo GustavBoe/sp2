@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 
+@plugin "daisyui";
+
 @theme {
   --font-livvic: "Livvic";
   --font-lexend: "Lexend", sans-serif;
