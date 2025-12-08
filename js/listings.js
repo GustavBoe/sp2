@@ -1,25 +1,40 @@
 import { get } from "./api/apiClient.js";
 import {
-  LISTINGS_ENDPOINT,
   listingsContainer,
+  allListingsToggle,
+  activeListingsToggle,
   showMoreButton,
   showMoreLoader,
+  LISTINGS_ENDPOINT,
 } from "./const/const.js";
+let active = false;
 
-let currentPage = 1;
 let isFetching = false;
+let currentPage = 1;
 
 async function getAndRenderListings(page) {
+  console.log(active);
+  const ALL_LISTINGS_ENDPOINT =
+    LISTINGS_ENDPOINT + `?_seller=true&_bids=true&page=${page}&limit=12`;
+  const ACTIVE_LISTINGS_ENDPOINT = ALL_LISTINGS_ENDPOINT + "&_active=true";
+
   isFetching = true;
+
+  let CHOSEN_URL = "";
+
   showMoreLoader.classList = "loading loading-spinner loading-md";
   showMoreButton.textContent = `Loading..`;
   showMoreButton.classList = "animate-pulse";
   showMoreButton.disabled = true;
 
   try {
-    const response = await get(
-      LISTINGS_ENDPOINT + `?_seller=true&_bids=true&page=${page}&limit=12`
-    );
+    if (active === false) {
+      CHOSEN_URL = ALL_LISTINGS_ENDPOINT;
+    } else if (active === true) {
+      CHOSEN_URL = ACTIVE_LISTINGS_ENDPOINT;
+    }
+    console.log(CHOSEN_URL);
+    const response = await get(CHOSEN_URL);
     const listings = response.data;
 
     const meta = response.meta;
@@ -40,11 +55,16 @@ async function getAndRenderListings(page) {
         "href",
         `./listing/specific.html?id=${listing.id}`
       );
-      if (listing.media.url) {
-        singleImage.src = `${listing.media.url}`;
+      let listingImage = listing.media;
+
+      if (listingImage.length === 0) {
+        let listingImageURL = "https://i.imghippo.com/files/Eht7003Y.png";
+        singleImage.src = listingImageURL;
       } else {
-        singleImage.src = "https://i.imghippo.com/files/Eht7003Y.png";
+        let listingImageURL = listingImage[0].url;
+        singleImage.src = listingImageURL;
       }
+
       singleTitle.textContent = listing.title;
       singleLatest.textContent = latestBid;
       singleContainer.append(singleImage, singleTitle, singleLatest);
@@ -63,10 +83,20 @@ async function getAndRenderListings(page) {
     showMoreButton.disabled = false;
   } finally {
     showMoreButton.classList = "";
+    showMoreLoader.classList = "";
     isFetching = false;
   }
 }
-
+allListingsToggle.addEventListener("click", () => {
+  active = false;
+  listingsContainer.textContent = "";
+  getAndRenderListings(currentPage);
+});
+activeListingsToggle.addEventListener("click", () => {
+  active = true;
+  listingsContainer.textContent = "";
+  getAndRenderListings(currentPage);
+});
 showMoreButton.addEventListener("click", () => {
   if (!isFetching) {
     currentPage++;

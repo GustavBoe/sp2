@@ -3,6 +3,8 @@
 import { getFromLocalStorage } from "../storage/localstorage.js";
 export const profileName = getFromLocalStorage("profileName");
 
+export let todaysDate = new Date();
+
 //Endpoints
 
 export const BASE_URL = "https://v2.api.noroff.dev";
@@ -26,7 +28,7 @@ export const queryString = window.location.search;
 export const urlParams = new URLSearchParams(queryString);
 export const PARAMETER_ID = urlParams.get("id");
 export const SPECIFIC_LISTING_URL =
-  LISTINGS_ENDPOINT + "/" + PARAMETER_ID + "?_seller=true";
+  LISTINGS_ENDPOINT + "/" + PARAMETER_ID + "?_seller=true&_bids=true";
 
 //Images
 
@@ -37,6 +39,8 @@ export const placeholderImage = "https://i.imghippo.com/files/sE6922GH.webp";
 export const specificListing = document.getElementById("listing");
 
 // Components
+export const allListingsToggle = document.getElementById("all-listings");
+export const activeListingsToggle = document.getElementById("active-listings");
 export const showMoreLoader = document.getElementById("show-more-loader");
 export const showMoreButton = document.getElementById("show-more-button");
 export const backToProfile = document.getElementById("back-to-profile");
@@ -45,3 +49,9 @@ export const deleteButton = document.getElementById("delete-button");
 
 // Containers
 export const listingsContainer = document.getElementById("listings-container");
+export const specificContainerLT = document.getElementById(
+  "specific-container-left-top"
+);
+export const specificContainerRB = document.getElementById(
+  "specific-container-right-bottom"
+);
