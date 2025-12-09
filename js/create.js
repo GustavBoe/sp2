@@ -18,7 +18,7 @@ createForm.addEventListener("submit", async (event) => {
   formFields.endsAt = finalDate;
 
   formFields.url = placeholderImage;
-  console.log(formFields.url);
+
   const media = [
     {
       url: formFields.url,
@@ -27,7 +27,7 @@ createForm.addEventListener("submit", async (event) => {
   ];
 
   formFields.media = media;
-  console.log(formFields);
+
   try {
     const response = await post(LISTINGS_ENDPOINT, formFields);
 

@@ -29,7 +29,7 @@ export const urlParams = new URLSearchParams(queryString);
 export const PARAMETER_ID = urlParams.get("id");
 export const SPECIFIC_LISTING_URL =
   LISTINGS_ENDPOINT + "/" + PARAMETER_ID + "?_seller=true&_bids=true";
-
+export const BIDDING_URL = LISTINGS_ENDPOINT + "/" + PARAMETER_ID + "/bids";
 //Images
 
 export const placeholderImage = "https://i.imghippo.com/files/sE6922GH.webp";
