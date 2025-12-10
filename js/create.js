@@ -17,7 +17,9 @@ createForm.addEventListener("submit", async (event) => {
   const finalDate = formFields.date + "T" + formFields.time + ":00.000Z";
   formFields.endsAt = finalDate;
 
-  formFields.url = placeholderImage;
+  if (formFields.url === undefined || null) {
+    formFields.url = placeholderImage;
+  }
 
   const media = [
     {

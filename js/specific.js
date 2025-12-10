@@ -1,5 +1,6 @@
 import {
   todaysDate,
+  profileName,
   PARAMETER_ID,
   SPECIFIC_LISTING_URL,
   isLoggedIn,
@@ -19,27 +20,10 @@ async function getSpecific() {
 
     const listingData = response.data;
 
-    const sellerName = listingData.seller.name;
-    checkSeller(sellerName);
     return listingData;
   } catch {}
 }
 
-async function checkSeller(seller) {
-  if (seller === getFromLocalStorage("profileName")) {
-    sendToEdit();
-  }
-}
-function sendToEdit() {
-  const main = document.getElementsByClassName("main");
-  const editBtn = document.createElement("button");
-  editBtn.addEventListener("click", () => {
-    location.href = `./edit.html?id=${PARAMETER_ID}`;
-  });
-  editBtn.textContent = "Click here for edit";
-
-  main.append(editBtn);
-}
 async function renderSpecific() {
   const listing = await getSpecific();
   if (todaysDate.toISOString() < listing.endsAt) {
@@ -65,6 +49,8 @@ async function renderSpecificLeftTop(listing) {
   const specificStatus = document.createElement("h3");
 
   const specificEndsAt = document.createElement("p");
+
+  const specificCreator = document.createElement("a");
 
   const specificDescription = document.createElement("article");
 
@@ -99,19 +85,24 @@ async function renderSpecificLeftTop(listing) {
   }
 
   specificTitle.textContent = `${listing.title}`;
+  specificCreator.textContent = `Published by ${listing.seller.name}`;
 
   specificContainerLT.append(
     specificTitle,
     specificImg,
     specificStatus,
     specificEndsAt,
+    specificCreator,
     specificDescription,
     specificTags
   );
 }
 async function SpecificRightBottom(listing) {
   let bids = listing.bids.reverse();
-  let latestBid = bids[0].amount;
+  let latestBid = 0;
+  if (bids.length > 0) {
+    latestBid = bids[0].amount;
+  }
 
   //Bidding section
   const biddingSection = document.createElement("div");
@@ -125,6 +116,11 @@ async function SpecificRightBottom(listing) {
   logInLink.addEventListener("click", () => {
     location.href = "../login/index.html";
   });
+  const editLink = document.createElement("button");
+  editLink.addEventListener("click", () => {
+    location.href = `./edit.html?id=${PARAMETER_ID}`;
+  });
+  editLink.textContent = "Edit listing";
   bidInput.type = "number";
   bidInput.name = "amount";
   bidInput.id = "amount";
@@ -161,7 +157,7 @@ async function SpecificRightBottom(listing) {
     logInLink.textContent = "Log in to find a listing";
   }
 
-  if (isLoggedIn && active === true) {
+  if (isLoggedIn && active === true && listing.seller.name !== profileName) {
     fieldContainer.append(bidInput, bidButton);
     bidForm.append(fieldContainer);
     biddingContainer.append(bidForm);
@@ -170,7 +166,10 @@ async function SpecificRightBottom(listing) {
   if (!isLoggedIn) {
     biddingContainer.append(logInLink);
   }
-
+  if (listing.seller.name === profileName) {
+    biddingContainer.append(editLink);
+  }
+  console.log(listing.seller.name, profileName);
   biddingSection.append(biddingStatus, biddingContainer);
 
   //History section
@@ -186,8 +185,10 @@ async function SpecificRightBottom(listing) {
   const biddingHistory = document.createElement("ul");
   biddingHistory.classList = "list-none m-0 p-0";
 
-  if (latestBid === undefined || null) {
+  if (latestBid === 0) {
     biddingHistoryHeading.textContent = "No bids to show!";
+    biddingHistoryDisplay.classList = "";
+    biddingHistoryDisplay.append(biddingHistoryHeading);
   } else {
     biddingHistoryHeading.textContent = "Bidding history";
     bids.forEach((bid) => {

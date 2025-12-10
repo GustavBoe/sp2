@@ -36,7 +36,7 @@ export const SPECIFIC_LISTING_URL =
 export const BIDDING_URL = LISTINGS_ENDPOINT + "/" + PARAMETER_ID + "/bids";
 //Images
 
-export const placeholderImage = "https://i.imghippo.com/files/sE6922GH.webp";
+export const placeholderImage = "https://i.imghippo.com/files/Eht7003Y.png";
 
 // Listings
 

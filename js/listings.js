@@ -13,7 +13,6 @@ let isFetching = false;
 let currentPage = 1;
 
 async function getAndRenderListings(page) {
-  console.log(active);
   const ALL_LISTINGS_ENDPOINT =
     LISTINGS_ENDPOINT + `?_seller=true&_bids=true&page=${page}&limit=12`;
   const ACTIVE_LISTINGS_ENDPOINT = ALL_LISTINGS_ENDPOINT + "&_active=true";
@@ -33,10 +32,10 @@ async function getAndRenderListings(page) {
     } else if (active === true) {
       CHOSEN_URL = ACTIVE_LISTINGS_ENDPOINT;
     }
-    console.log(CHOSEN_URL);
+
     const response = await get(CHOSEN_URL);
     const listings = response.data.reverse();
-
+    console.log(listings);
     const meta = response.meta;
 
     listings.forEach((listing) => {
