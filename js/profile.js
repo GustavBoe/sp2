@@ -11,6 +11,7 @@ import {
 editProfileButton.addEventListener("click", () => {
   location.href = `./edit.html?id=${profileName}`;
 });
+
 async function getProfile() {
   try {
     const userResponse = await get(USER_ENDPOINT);
@@ -18,6 +19,7 @@ async function getProfile() {
     const userData = userResponse.data;
 
     console.log(userData);
+    console.log(USER_ENDPOINT);
     getProfileListings();
   } catch {}
 }

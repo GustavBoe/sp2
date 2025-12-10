@@ -86,6 +86,10 @@ async function renderSpecificLeftTop(listing) {
 
   specificTitle.textContent = `${listing.title}`;
   specificCreator.textContent = `Published by ${listing.seller.name}`;
+  specificCreator.setAttribute(
+    "href",
+    `../profile/index.html?id=${listing.seller.name}`
+  );
 
   specificContainerLT.append(
     specificTitle,
