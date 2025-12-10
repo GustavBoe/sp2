@@ -35,16 +35,17 @@ async function getAndRenderListings(page) {
     }
     console.log(CHOSEN_URL);
     const response = await get(CHOSEN_URL);
-    const listings = response.data;
+    const listings = response.data.reverse();
 
     const meta = response.meta;
 
     listings.forEach((listing) => {
-      let latestBid = null;
+      let latestBid = undefined;
       if (listing.bids.length === 0) {
         latestBid = 0;
       } else {
-        latestBid = listing.bids[0].amount;
+        let sortedBids = listing.bids.reverse();
+        latestBid = sortedBids[0].amount;
       }
       const singleLink = document.createElement("a");
       const singleContainer = document.createElement("div");

@@ -4,6 +4,10 @@ import { getFromLocalStorage } from "../storage/localstorage.js";
 export const profileName = getFromLocalStorage("profileName");
 
 export let todaysDate = new Date();
+export let isLoggedIn = false;
+if (getFromLocalStorage("accessToken")) {
+  isLoggedIn = true;
+}
 
 //Endpoints
 
