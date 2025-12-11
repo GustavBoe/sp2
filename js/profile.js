@@ -10,31 +10,36 @@ import {
   activeListingsToggle,
   showMoreButton,
   showMoreLoader,
+  profileLoaderContainer,
 } from "./const/const.js";
 let active = false;
 
 let isFetching = false;
 let currentPage = 1;
-
-async function getAndRenderProfileData() {
+function renderErrorPage() {}
+async function getProfileData() {
   try {
     const response = await get(USER_ENDPOINT);
-    const profile = response.data;
-    console.log(profile);
+    const profileData = response.data;
+    return profileData;
   } catch (error) {
     alert(error, "Could not get user");
   }
+}
+async function renderProfileData(profile) {
+  console.log(profile);
 }
 async function getAndRenderProfileListings(page) {
   isFetching = true;
 
   let CHOSEN_URL = "";
 
-  showMoreLoader.classList = "loading loading-spinner loading-md";
-  showMoreButton.textContent = `Loading..`;
-  showMoreButton.classList = "animate-pulse";
-  showMoreButton.disabled = true;
-
+  if (currentPage !== 1) {
+    showMoreLoader.classList = "loading loading-spinner loading-md";
+    showMoreButton.textContent = `Loading..`;
+    showMoreButton.classList = "animate-pulse";
+    showMoreButton.disabled = true;
+  }
   try {
     if (active === false) {
       CHOSEN_URL = `${ALL_USER_LISTINGS_ENDPOINT}&page=${page}&limit=12 `;
@@ -138,7 +143,21 @@ showMoreButton.addEventListener("click", () => {
   }
 });
 async function renderProfile() {
-  await getAndRenderProfileData();
-  await getAndRenderProfileListings(currentPage);
+  profileLoaderContainer.style.display = "block";
+  try {
+    const user = await getProfileData();
+    await renderProfileData(user);
+    await getAndRenderProfileListings(currentPage);
+  } catch (error) {
+    alert(error, "Could not get user");
+    confirm("Go back to listing?");
+    if (confirm) {
+      history.back();
+    } else {
+      renderErrorPage();
+    }
+  } finally {
+    profileLoaderContainer.style.display = "none";
+  }
 }
 renderProfile();

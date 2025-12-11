@@ -59,9 +59,17 @@ export const showMoreButton = document.getElementById("show-more-button");
 
 export const backToProfile = document.getElementById("back-to-profile");
 
-export const editProfileButton = document.getElementById("edit-profile-button");
-
 export const deleteButton = document.getElementById("delete-button");
+
+export const profileLoaderContainer = document.getElementById(
+  "profile-loader-container"
+);
+profileLoaderContainer.classList =
+  "absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2";
+const profileLoader = document.createElement("div");
+profileLoader.classList =
+  "border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-64 w-64";
+profileLoaderContainer.append(profileLoader);
 
 // Containers
 export const listingsContainer = document.getElementById("listings-container");
