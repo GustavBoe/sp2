@@ -9,8 +9,9 @@ import {
   specificContainerRB,
 } from "../js/const/const.js";
 import { get, post } from "./api/apiClient.js";
-import { getFromLocalStorage } from "./storage/localstorage.js";
 
+import { displayHeader } from "./components/header.js";
+displayHeader();
 let active = false;
 let listingStatus = "";
 
@@ -86,10 +87,12 @@ async function renderSpecificLeftTop(listing) {
 
   specificTitle.textContent = `${listing.title}`;
   specificCreator.textContent = `Published by ${listing.seller.name}`;
-  specificCreator.setAttribute(
-    "href",
-    `../profile/index.html?id=${listing.seller.name}`
-  );
+  if (isLoggedIn) {
+    specificCreator.setAttribute(
+      "href",
+      `../profile/index.html?id=${listing.seller.name}`
+    );
+  }
 
   specificContainerLT.append(
     specificTitle,

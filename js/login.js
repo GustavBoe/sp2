@@ -1,7 +1,8 @@
 import { post } from "./api/apiClient.js";
 import { addToLocalStorage } from "../js/storage/localstorage.js";
 import { NOROFF_KEY, LOGIN_ENDPOINT } from "./const/const.js";
-
+import { displayHeader } from "./components/header.js";
+displayHeader();
 const loginForm = document.getElementById("login-form");
 
 loginForm.addEventListener("submit", async (event) => {

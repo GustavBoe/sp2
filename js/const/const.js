@@ -34,6 +34,8 @@ export const SPECIFIC_LISTING_URL = `${LISTINGS_ENDPOINT}/${PARAMETER_ID}?_selle
 
 export const BIDDING_URL = `${LISTINGS_ENDPOINT}/${PARAMETER_ID}/bids`;
 
+export const OWNER_URL = `/auction/profiles/${profileName}`;
+
 export const USER_ENDPOINT = `/auction/profiles/${PARAMETER_ID}`;
 
 export let ALL_USER_LISTINGS_ENDPOINT = `${USER_ENDPOINT}/listings?_seller=true&_bids=true`;
@@ -51,6 +53,9 @@ export const placeholderImage = "https://i.imghippo.com/files/Eht7003Y.png";
 export const specificListing = document.getElementById("listing");
 
 // Components
+export const errorMessage = document.createElement("p");
+
+export const header = document.getElementById("header");
 
 export const showMoreLoader = document.getElementById("show-more-loader");
 

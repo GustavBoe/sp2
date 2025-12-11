@@ -17,7 +17,8 @@ import {
   profileLoaderContainer,
   profileName,
 } from "./const/const.js";
-
+import { displayHeader } from "./components/header.js";
+displayHeader();
 profileLoaderContainer.classList =
   "absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2";
 const profileLoader = document.createElement("div");
@@ -36,9 +37,9 @@ function showPageLoader() {
 function hidePageLoader() {
   profileLoaderContainer.style.display = "none";
 }
-async function getProfileData() {
+async function getProfileData(url) {
   try {
-    const response = await get(WON_LISTINGS_URL);
+    const response = await get(url);
     const profileData = response.data;
     return profileData;
   } catch (error) {
@@ -218,7 +219,7 @@ showMoreButton.addEventListener("click", () => {
 async function renderProfile() {
   showPageLoader();
   try {
-    const user = await getProfileData();
+    const user = await getProfileData(WON_LISTINGS_URL);
     await renderProfileData(user);
     await getAndRenderProfileListings(currentPage);
   } catch (error) {

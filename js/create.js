@@ -2,6 +2,8 @@ import { post } from "./api/apiClient.js";
 
 import { LISTINGS_ENDPOINT, placeholderImage } from "./const/const.js";
 
+import { displayHeader } from "./components/header.js";
+displayHeader();
 const createForm = document.getElementById("create-form");
 
 createForm.addEventListener("submit", async (event) => {

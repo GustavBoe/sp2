@@ -6,7 +6,8 @@ import {
   PARAMETER_ID,
   USER_ENDPOINT,
 } from "./const/const.js";
-
+import { displayHeader } from "./components/header.js";
+displayHeader();
 const profileForm = document.getElementById("profile-form");
 
 backToProfile.addEventListener("click", () => {

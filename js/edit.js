@@ -7,7 +7,8 @@ import {
   placeholderImage,
   deleteButton,
 } from "./const/const.js";
-
+import { displayHeader } from "./components/header.js";
+displayHeader();
 const editForm = document.getElementById("edit-form");
 async function renderListing() {
   const listingResponse = await get(SPECIFIC_LISTING_URL);

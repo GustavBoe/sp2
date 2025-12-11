@@ -7,6 +7,8 @@ import {
   showMoreLoader,
   LISTINGS_ENDPOINT,
 } from "./const/const.js";
+import { displayHeader } from "./components/header.js";
+displayHeader();
 let active = false;
 
 let isFetching = false;
@@ -40,7 +42,6 @@ export async function getAndRenderListings(page, endpoint) {
     const meta = response.meta;
 
     listings.forEach((listing) => {
-      console.log(listing);
       let latestBid = undefined;
       if (listing.bids === undefined) {
       }
@@ -49,8 +50,6 @@ export async function getAndRenderListings(page, endpoint) {
       } else {
         let bids = listing.bids.sort((a, b) => a.amount - b.amount).reverse();
         latestBid = bids[0].amount;
-
-        console.log(listing);
       }
       if (listing.bids === undefined) {
         console.log(listing.bid);
