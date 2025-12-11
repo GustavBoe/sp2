@@ -57,10 +57,10 @@ async function renderSpecificLeftTop(listing) {
   const specificTags = document.createElement("div");
   //Checks
 
-  if (listing.media[0].url) {
-    specificImg.src = `${listing.media[0].url}`;
-  } else {
+  if (listing.media[0] === undefined) {
     specificImg.src = "https://i.imghippo.com/files/Eht7003Y.png";
+  } else {
+    specificImg.src = `${listing.media[0].url}`;
   }
   if (active) {
     specificStatus.textContent = "Active";
@@ -102,7 +102,10 @@ async function renderSpecificLeftTop(listing) {
   );
 }
 async function SpecificRightBottom(listing) {
-  let bids = listing.bids.reverse();
+  let bids = listing.bids.sort((a, b) => a.amount - b.amount).reverse();
+
+  console.log(bids);
+
   let latestBid = 0;
   if (bids.length > 0) {
     latestBid = bids[0].amount;

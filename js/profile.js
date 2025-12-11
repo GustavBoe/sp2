@@ -5,21 +5,40 @@ import {
   USER_ENDPOINT,
   ALL_USER_LISTINGS_ENDPOINT,
   ACTIVE_USER_LISTINGS_ENDPOINT,
+  WON_LISTINGS_URL,
+  wonListingsToggle,
   profileListingsContainer,
   allListingsToggle,
   activeListingsToggle,
   showMoreButton,
   showMoreLoader,
+  showMoreContainer,
+  profileDataContainer,
   profileLoaderContainer,
+  profileName,
 } from "./const/const.js";
-let active = false;
 
+profileLoaderContainer.classList =
+  "absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2";
+const profileLoader = document.createElement("div");
+profileLoader.classList =
+  "border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-64 w-64";
+profileLoaderContainer.append(profileLoader);
+
+let active = false;
+let wins = false;
 let isFetching = false;
 let currentPage = 1;
 function renderErrorPage() {}
+function showPageLoader() {
+  profileLoaderContainer.style.display = "block";
+}
+function hidePageLoader() {
+  profileLoaderContainer.style.display = "none";
+}
 async function getProfileData() {
   try {
-    const response = await get(USER_ENDPOINT);
+    const response = await get(WON_LISTINGS_URL);
     const profileData = response.data;
     return profileData;
   } catch (error) {
@@ -28,6 +47,28 @@ async function getProfileData() {
 }
 async function renderProfileData(profile) {
   console.log(profile);
+  if (profileName === profile.name) {
+    //section append ( email and Edit profile button )
+  }
+  const profileBanner = document.createElement("img");
+  const profileInfo = document.createElement("div");
+  const profileImgContainer = document.createElement("div");
+  const profileImg = document.createElement("img");
+  const profileTextContainer = document.createElement("div");
+  const userName = document.createElement("p");
+  const userEmail = document.createElement("p");
+  const userBio = document.createElement("p");
+  profileBanner.src = profile.banner.url;
+  profileImg.src = profile.avatar.url;
+  profileImg.alt = profile.avatar.alt;
+
+  userName.textContent = profile.name;
+  userEmail.textContent = profile.email;
+  userBio.textContent = profile.bio;
+  profileImgContainer.append(profileImg);
+  profileTextContainer.append(userName, userEmail, userBio);
+  profileInfo.append(profileImgContainer, profileTextContainer);
+  profileDataContainer.append(profileBanner, profileInfo);
 }
 async function getAndRenderProfileListings(page) {
   isFetching = true;
@@ -40,16 +81,28 @@ async function getAndRenderProfileListings(page) {
     showMoreButton.classList = "animate-pulse";
     showMoreButton.disabled = true;
   }
+
   try {
     if (active === false) {
-      CHOSEN_URL = `${ALL_USER_LISTINGS_ENDPOINT}&page=${page}&limit=12 `;
-    } else if (active === true) {
-      CHOSEN_URL = `${ACTIVE_USER_LISTINGS_ENDPOINT}&page=${page}&limit=12`;
+      CHOSEN_URL = `${ALL_USER_LISTINGS_ENDPOINT}&page=${page}&limit=12&_wins=true `;
+    }
+    if (active === true) {
+      CHOSEN_URL = `${ACTIVE_USER_LISTINGS_ENDPOINT}&page=${page}&limit=12&_wins=true`;
+    }
+
+    if (wins === true) {
+      CHOSEN_URL = `${WON_LISTINGS_URL}&limit=12`;
     }
 
     const response = await get(CHOSEN_URL);
-    const listings = response.data.reverse();
+    let listings = undefined;
 
+    if (wins === true) {
+      listings = response.data.wins;
+    } else {
+      listings = response.data;
+    }
+    console.log(response);
     const meta = response.meta;
 
     listings.forEach((listing) => {
@@ -62,7 +115,7 @@ async function getAndRenderProfileListings(page) {
       if (bids === undefined) {
         latestBid = 0;
       } else {
-        sortedBids = bids.reverse();
+        sortedBids = listing.bids.sort((a, b) => a.amount - b.amount).reverse();
         if (sortedBids[0] === undefined) {
           latestBid = 0;
         } else {
@@ -74,6 +127,7 @@ async function getAndRenderProfileListings(page) {
       } else {
         listingStatus = "Closed";
       }
+
       const singleLink = document.createElement("a");
       const singleContainer = document.createElement("div");
       const statusContainer = document.createElement("div");
@@ -126,15 +180,34 @@ async function getAndRenderProfileListings(page) {
 }
 allListingsToggle.addEventListener("click", () => {
   active = false;
+  wins = false;
   profileListingsContainer.textContent = "";
-  console.log("All endpoint");
-  getAndRenderProfileListings(currentPage);
+  try {
+    getAndRenderProfileListings(currentPage);
+  } catch (error) {
+    alert(error, "Could not get all listings, refreshing the page..");
+    location.href = "/index.html";
+  }
 });
 activeListingsToggle.addEventListener("click", () => {
   active = true;
+  wins = false;
   profileListingsContainer.textContent = "";
-  console.log("Active endpoint");
-  getAndRenderProfileListings(currentPage);
+
+  try {
+    getAndRenderProfileListings(currentPage);
+  } catch (error) {
+    alert(error, "Could not get active listings, refreshing the page..");
+  }
+});
+wonListingsToggle.addEventListener("click", () => {
+  wins = true;
+  profileListingsContainer.textContent = "";
+  try {
+    getAndRenderProfileListings(currentPage);
+  } catch (error) {
+    alert(error, "Could not get active listings, refreshing the page..");
+  }
 });
 showMoreButton.addEventListener("click", () => {
   if (!isFetching) {
@@ -143,7 +216,7 @@ showMoreButton.addEventListener("click", () => {
   }
 });
 async function renderProfile() {
-  profileLoaderContainer.style.display = "block";
+  showPageLoader();
   try {
     const user = await getProfileData();
     await renderProfileData(user);
@@ -157,7 +230,7 @@ async function renderProfile() {
       renderErrorPage();
     }
   } finally {
-    profileLoaderContainer.style.display = "none";
+    hidePageLoader();
   }
 }
 renderProfile();

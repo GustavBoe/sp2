@@ -38,7 +38,9 @@ export const USER_ENDPOINT = `/auction/profiles/${PARAMETER_ID}`;
 
 export let ALL_USER_LISTINGS_ENDPOINT = `${USER_ENDPOINT}/listings?_seller=true&_bids=true`;
 
-export let ACTIVE_USER_LISTINGS_ENDPOINT = `${ALL_USER_LISTINGS_ENDPOINT}?_active=true`;
+export let ACTIVE_USER_LISTINGS_ENDPOINT = `${ALL_USER_LISTINGS_ENDPOINT}&_active=true`;
+
+export let WON_LISTINGS_URL = `${USER_ENDPOINT}?_wins=true`;
 
 //Images
 
@@ -49,27 +51,29 @@ export const placeholderImage = "https://i.imghippo.com/files/Eht7003Y.png";
 export const specificListing = document.getElementById("listing");
 
 // Components
-export const allListingsToggle = document.getElementById("all-listings");
 
 export const showMoreLoader = document.getElementById("show-more-loader");
 
+export const allListingsToggle = document.getElementById("all-listings");
+
 export const activeListingsToggle = document.getElementById("active-listings");
+
+export const wonListingsToggle = document.getElementById("wins");
+
+export const showMoreContainer = document.getElementById("show-more-container");
 
 export const showMoreButton = document.getElementById("show-more-button");
 
 export const backToProfile = document.getElementById("back-to-profile");
 
 export const deleteButton = document.getElementById("delete-button");
+export const profileDataContainer = document.getElementById(
+  "profile-data-container"
+);
 
 export const profileLoaderContainer = document.getElementById(
   "profile-loader-container"
 );
-profileLoaderContainer.classList =
-  "absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2";
-const profileLoader = document.createElement("div");
-profileLoader.classList =
-  "border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-64 w-64";
-profileLoaderContainer.append(profileLoader);
 
 // Containers
 export const listingsContainer = document.getElementById("listings-container");

@@ -40,12 +40,20 @@ export async function getAndRenderListings(page, endpoint) {
     const meta = response.meta;
 
     listings.forEach((listing) => {
+      console.log(listing);
       let latestBid = undefined;
+      if (listing.bids === undefined) {
+      }
       if (listing.bids.length === 0) {
         latestBid = 0;
       } else {
-        let sortedBids = listing.bids.reverse();
-        latestBid = sortedBids[0].amount;
+        let bids = listing.bids.sort((a, b) => a.amount - b.amount).reverse();
+        latestBid = bids[0].amount;
+
+        console.log(listing);
+      }
+      if (listing.bids === undefined) {
+        console.log(listing.bid);
       }
       const singleLink = document.createElement("a");
       const singleContainer = document.createElement("div");
