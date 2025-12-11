@@ -36,9 +36,9 @@ export const BIDDING_URL = `${LISTINGS_ENDPOINT}/${PARAMETER_ID}/bids`;
 
 export const USER_ENDPOINT = `/auction/profiles/${PARAMETER_ID}`;
 
-export const ALL_USER_LISTINGS_ENDPOINT = `${USER_ENDPOINT}/listings`;
+export let ALL_USER_LISTINGS_ENDPOINT = `${USER_ENDPOINT}/listings?_seller=true&_bids=true`;
 
-export const ACTIVE_USER_LISTINGS_ENDPOINT = `${ALL_USER_LISTINGS_ENDPOINT}?_active=true`;
+export let ACTIVE_USER_LISTINGS_ENDPOINT = `${ALL_USER_LISTINGS_ENDPOINT}?_active=true`;
 
 //Images
 
@@ -72,4 +72,7 @@ export const specificContainerLT = document.getElementById(
 
 export const specificContainerRB = document.getElementById(
   "specific-container-right-bottom"
+);
+export const profileListingsContainer = document.getElementById(
+  "profile-listings-container"
 );

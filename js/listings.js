@@ -12,10 +12,11 @@ let active = false;
 let isFetching = false;
 let currentPage = 1;
 
-async function getAndRenderListings(page) {
-  const ALL_LISTINGS_ENDPOINT =
-    LISTINGS_ENDPOINT + `?_seller=true&_bids=true&page=${page}&limit=12`;
-  const ACTIVE_LISTINGS_ENDPOINT = ALL_LISTINGS_ENDPOINT + "&_active=true";
+export async function getAndRenderListings(page, endpoint) {
+  let ALL_LISTINGS_ENDPOINT =
+    endpoint + `?_seller=true&_bids=true&page=${page}&limit=12`;
+  let ACTIVE_LISTINGS_ENDPOINT =
+    endpoint + `?_seller=true&_bids=true&page=${page}&limit=12&_active=true`;
 
   isFetching = true;
 
@@ -35,7 +36,7 @@ async function getAndRenderListings(page) {
 
     const response = await get(CHOSEN_URL);
     const listings = response.data.reverse();
-    console.log(listings);
+
     const meta = response.meta;
 
     listings.forEach((listing) => {
@@ -86,21 +87,22 @@ async function getAndRenderListings(page) {
     showMoreLoader.classList = "";
     isFetching = false;
   }
+  allListingsToggle.addEventListener("click", () => {
+    active = false;
+    listingsContainer.textContent = "";
+    getAndRenderListings(currentPage, endpoint);
+  });
+  activeListingsToggle.addEventListener("click", () => {
+    active = true;
+    listingsContainer.textContent = "";
+    getAndRenderListings(currentPage, endpoint);
+  });
+  showMoreButton.addEventListener("click", () => {
+    if (!isFetching) {
+      currentPage++;
+      getAndRenderListings(currentPage, endpoint);
+    }
+  });
 }
-allListingsToggle.addEventListener("click", () => {
-  active = false;
-  listingsContainer.textContent = "";
-  getAndRenderListings(currentPage);
-});
-activeListingsToggle.addEventListener("click", () => {
-  active = true;
-  listingsContainer.textContent = "";
-  getAndRenderListings(currentPage);
-});
-showMoreButton.addEventListener("click", () => {
-  if (!isFetching) {
-    currentPage++;
-    getAndRenderListings(currentPage);
-  }
-});
-getAndRenderListings(currentPage);
+
+getAndRenderListings(currentPage, LISTINGS_ENDPOINT);
