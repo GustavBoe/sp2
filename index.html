@@ -13,16 +13,16 @@
   </head>
   <body>
     <header>
-      <nav class="bg-white shadow-lg">
+      <!-- Header from noroff CSS frameworks Module 2 Lesson 2.3 Responsive Layout Patterns -->
+      <nav class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
-            <div class="text-xl font-bold">List</div>
+            <div id="list-logo" class="text-6xl text-listBlue font-bold">
+              List
+            </div>
 
-            <!-- Desktop Navigation -->
             <div id="desktop-links" class="hidden md:flex space-x-4"></div>
 
-            <!-- Mobile menu button -->
             <button
               class="md:hidden"
               onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
@@ -30,8 +30,8 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                fill="list-blue"
-                class="size-6"
+                fill="#366aa5"
+                class="size-15"
               >
                 <path
                   fill-rule="evenodd"
@@ -42,9 +42,11 @@
             </button>
           </div>
 
-          <!-- Mobile Navigation Menu -->
           <div id="mobile-menu" class="hidden md:hidden bg-grey-50">
-            <div id="mobile-links" class="px-2 pt-2 pb-3 space-y-1"></div>
+            <div
+              id="mobile-links"
+              class="px-2 pt-2 pb-3 space-y-1 text-xl self-end"
+            ></div>
           </div>
         </div>
       </nav>
@@ -58,7 +60,6 @@
       <section id="listings-container"></section>
       <div>
         <span id="show-more-loader"></span>
-
         <button type="button" id="show-more-button"></button>
       </div>
     </main>

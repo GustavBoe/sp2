@@ -49,7 +49,6 @@ async function getProfileData(url) {
   }
 }
 async function renderProfileData(profile) {
-  console.log(profile);
   if (profileName === profile.name) {
     //section append ( email and Edit profile button )
   }
@@ -105,7 +104,7 @@ async function getAndRenderProfileListings(page) {
     } else {
       listings = response.data;
     }
-    console.log(response);
+
     const meta = response.meta;
 
     listings.forEach((listing) => {

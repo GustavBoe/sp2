@@ -54,7 +54,7 @@ export const specificListing = document.getElementById("listing");
 
 // Components
 export const errorMessage = document.createElement("p");
-
+export const listLogo = document.getElementById("list-logo");
 export const header = document.getElementById("header");
 export const desktopLinks = document.getElementById("desktop-links");
 export const mobileLinks = document.getElementById("mobile-links");

@@ -1,6 +1,7 @@
 import {
   profileName,
   isLoggedIn,
+  listLogo,
   desktopLinks,
   mobileLinks,
   OWNER_URL,
@@ -19,9 +20,9 @@ async function getProfileData(url) {
   }
 }
 export async function displayHeader() {
-  const listLogo = document.createElement("a");
-  listLogo.textContent = "List";
-  listLogo.setAttribute("href", "../index.html");
+  listLogo.addEventListener("click", () => {
+    location.href = "../index.html";
+  });
 
   const homeLink = document.createElement("a");
   const createLink = document.createElement("a");
@@ -35,7 +36,7 @@ export async function displayHeader() {
   const mobileCreditsDisplay = document.createElement("p");
   const mobileProfileLink = document.createElement("a");
   const mobileLogInLink = document.createElement("a");
-  const mobileLogOutButton = document.createElement("button");
+  const mobileLogOutButton = document.createElement("p");
 
   mobileHomeLink.textContent = "Home";
   mobileHomeLink.setAttribute("href", "../index.html");
@@ -59,8 +60,17 @@ export async function displayHeader() {
     mobileLogOutButton,
   ];
   mobileNavElements.forEach((element) => {
-    element.classList = " block px-3 py-2 text-grey-700 hover:text-blue-600";
+    element.classList.add(
+      "block",
+      "px-3",
+      "py-2",
+      "pl-50",
+      "text-right",
+      "text-listBlue"
+    );
   });
+  mobileLogOutButton.classList.remove("text-listBlue");
+  mobileLogOutButton.classList.add("text-listAlert");
 
   listLogo.textContent = "List";
   listLogo.setAttribute("href", "../index.html");

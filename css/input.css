@@ -11,8 +11,8 @@
   --font-lexend: "Lexend", sans-serif;
   --font-commisioner: "Commisioner", sans-serif;
   /*Colours for list*/
-  --list-blue: #366aa5;
-  --list-text: #3e3e3e;
-  --list-breadtext: #bcbcbc;
-  --list-alert: #a53636;
+  --color-listBlue: #366aa5;
+  --color-listText: #3e3e3e;
+  --color-listBreadtext: #bcbcbc;
+  --color-listAlert: #a53636;
 }
