@@ -11,7 +11,9 @@ import {
 import { get, post } from "./api/apiClient.js";
 
 import { displayHeader } from "./components/header.js";
+import { displayFooter } from "./components/footer.js";
 displayHeader();
+displayFooter();
 let active = false;
 let listingStatus = "";
 

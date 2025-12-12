@@ -3,7 +3,10 @@ import { post } from "./api/apiClient.js";
 import { LISTINGS_ENDPOINT, placeholderImage } from "./const/const.js";
 
 import { displayHeader } from "./components/header.js";
+
+import { displayFooter } from "./components/footer.js";
 displayHeader();
+displayFooter();
 const createForm = document.getElementById("create-form");
 
 createForm.addEventListener("submit", async (event) => {

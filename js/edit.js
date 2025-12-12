@@ -8,7 +8,10 @@ import {
   deleteButton,
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
+
+import { displayFooter } from "./components/footer.js";
 displayHeader();
+displayFooter();
 const editForm = document.getElementById("edit-form");
 async function renderListing() {
   const listingResponse = await get(SPECIFIC_LISTING_URL);

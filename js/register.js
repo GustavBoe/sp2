@@ -1,7 +1,9 @@
 import { post } from "./api/apiClient.js";
 import { KEY_ENDPOINT, REGISTER_ENDPOINT } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
+import { displayFooter } from "./components/footer.js";
 displayHeader();
+displayFooter();
 const registerForm = document.getElementById("register-form");
 
 registerForm.addEventListener("submit", async (event) => {

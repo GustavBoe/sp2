@@ -18,7 +18,9 @@ import {
   profileName,
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
+import { displayFooter } from "./components/footer.js";
 displayHeader();
+displayFooter();
 profileLoaderContainer.classList =
   "absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2";
 const profileLoader = document.createElement("div");

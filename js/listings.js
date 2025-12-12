@@ -8,7 +8,9 @@ import {
   LISTINGS_ENDPOINT,
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
+import { displayFooter } from "./components/footer.js";
 displayHeader();
+displayFooter();
 let active = false;
 
 let isFetching = false;

@@ -5,9 +5,13 @@ import {
   profileName,
   PARAMETER_ID,
   USER_ENDPOINT,
+  profileForm,
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
+
+import { displayFooter } from "./components/footer.js";
 displayHeader();
+displayFooter();
 const profileForm = document.getElementById("profile-form");
 
 backToProfile.addEventListener("click", () => {

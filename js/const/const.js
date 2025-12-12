@@ -56,7 +56,7 @@ export const specificListing = document.getElementById("listing");
 export const errorMessage = document.createElement("p");
 
 export const header = document.getElementById("header");
-
+export const footer = document.getElementById("footer");
 export const showMoreLoader = document.getElementById("show-more-loader");
 
 export const allListingsToggle = document.getElementById("all-listings");
@@ -70,6 +70,7 @@ export const showMoreContainer = document.getElementById("show-more-container");
 export const showMoreButton = document.getElementById("show-more-button");
 
 export const backToProfile = document.getElementById("back-to-profile");
+export const profileForm = document.getElementById("profile-form");
 
 export const deleteButton = document.getElementById("delete-button");
 export const profileDataContainer = document.getElementById(
