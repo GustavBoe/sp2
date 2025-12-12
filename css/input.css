@@ -6,7 +6,13 @@
 @plugin "daisyui";
 
 @theme {
+  /*Fonts for List*/
   --font-livvic: "Livvic";
   --font-lexend: "Lexend", sans-serif;
   --font-commisioner: "Commisioner", sans-serif;
+  /*Colours for list*/
+  --list-blue: #366aa5;
+  --list-text: #3e3e3e;
+  --list-breadtext: #bcbcbc;
+  --list-alert: #a53636;
 }

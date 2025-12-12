@@ -56,6 +56,8 @@ export const specificListing = document.getElementById("listing");
 export const errorMessage = document.createElement("p");
 
 export const header = document.getElementById("header");
+export const desktopLinks = document.getElementById("desktop-links");
+export const mobileLinks = document.getElementById("mobile-links");
 export const footer = document.getElementById("footer");
 export const showMoreLoader = document.getElementById("show-more-loader");
 
