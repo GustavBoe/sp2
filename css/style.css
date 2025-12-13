@@ -45,6 +45,7 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --font-livvic: "Livvic";
+    --font-lexend: "Lexend", sans-serif;
     --color-listBlue: #366aa5;
     --color-listAlert: #a53636;
   }
@@ -580,11 +581,17 @@
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
   }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
+  }
+  .mb-20 {
+    margin-bottom: calc(var(--spacing) * 20);
   }
   .ml-4 {
     margin-left: calc(var(--spacing) * 4);
@@ -719,6 +726,9 @@
   .max-w-7xl {
     max-width: var(--container-7xl);
   }
+  .max-w-fit {
+    max-width: fit-content;
+  }
   .flex-1 {
     flex: 1;
   }
@@ -747,6 +757,12 @@
   }
   .grid-rows-2 {
     grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
   }
   .items-center {
     align-items: center;
@@ -813,6 +829,12 @@
       margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
     }
+  }
+  .place-self-center {
+    place-self: center;
+  }
+  .self-center {
+    align-self: center;
   }
   .self-end {
     align-self: flex-end;
@@ -931,6 +953,9 @@
   .align-text-bottom {
     vertical-align: text-bottom;
   }
+  .font-lexend {
+    font-family: var(--font-lexend);
+  }
   .font-livvic {
     font-family: var(--font-livvic);
   }
@@ -1019,9 +1044,24 @@
       display: none;
     }
   }
+  .md\:grid-cols-3 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .md\:grid-cols-4 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
   .lg\:w-5\/12 {
     @media (width >= 64rem) {
       width: calc(5/12 * 100%);
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
   .lg\:px-8 {
