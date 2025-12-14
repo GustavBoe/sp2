@@ -82,21 +82,12 @@ export async function displayHeader() {
   logInLink.textContent = "Log in";
   logInLink.setAttribute("href", "../login/index.html");
   logOutButton.textContent = "Log out";
+  logOutButton.classList.add("cursor-pointer", "text-listAlert");
   logOutButton.addEventListener("click", () => {
     localStorage.clear();
     location.href = "../index.html";
   });
-  let desktopNavElements = [
-    homeLink,
-    createLink,
-    creditsDisplay,
-    profileLink,
-    logInLink,
-    logOutButton,
-  ];
-  //desktopNavElements.forEach((element) => {
-  //element.classList = "text-grey-700 hover:text-blue-600";
-  //});
+
   if (!isLoggedIn) {
     desktopLinks.append(homeLink, logInLink);
     mobileLinks.append(mobileHomeLink, mobileLogInLink);

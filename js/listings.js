@@ -1,5 +1,6 @@
 import { get } from "./api/apiClient.js";
 import {
+  todaysDate,
   listingsContainer,
   allListingsToggle,
   activeListingsToggle,
@@ -28,7 +29,7 @@ export async function getAndRenderListings(page, endpoint) {
 
   showMoreLoader.classList = "loading loading-spinner loading-md";
   showMoreButton.textContent = `Loading..`;
-  showMoreButton.classList = "animate-pulse";
+  showMoreButton.classList.add("animate-pulse");
   showMoreButton.disabled = true;
 
   try {
@@ -44,23 +45,54 @@ export async function getAndRenderListings(page, endpoint) {
     const meta = response.meta;
 
     listings.forEach((listing) => {
-      let latestBid = undefined;
-      if (listing.bids === undefined) {
+      let listingStatus = "";
+      if (todaysDate.toISOString() < listing.endsAt) {
+        listingStatus = "Active";
+      } else {
+        listingStatus = "Closed";
       }
+
+      let latestBid = undefined;
+
       if (listing.bids.length === 0) {
         latestBid = 0;
       } else {
         let bids = listing.bids.sort((a, b) => a.amount - b.amount).reverse();
         latestBid = bids[0].amount;
       }
-      if (listing.bids === undefined) {
-        console.log(listing.bid);
-      }
+
       const singleLink = document.createElement("a");
+      singleLink.classList.add(
+        "w-36",
+        "h-48",
+        "border-1",
+        "border-listBlueShadow",
+        "rounded-sm",
+        "mb-5",
+        "active:border-listBlue",
+        "hover:border-listBlue",
+        "active:border-3",
+        "hover:border-3"
+      );
       const singleContainer = document.createElement("div");
+
       const singleImage = document.createElement("img");
-      const singleTitle = document.createElement("h2");
+      singleImage.classList.add(
+        "object-cover",
+        "w-full",
+        "h-32",
+        "rounded-t-sm"
+      );
+      const singleTitle = document.createElement("p");
+      singleTitle.classList.add(
+        "text-listText",
+        "text-center",
+        "font-xs",
+        "font-lexend",
+        "font-semibold"
+      );
       const singleLatest = document.createElement("p");
+      singleLatest.classList.add("text-listBreadtext", "text-center");
       singleLink.setAttribute(
         "href",
         `./listing/specific.html?id=${listing.id}`
@@ -75,8 +107,8 @@ export async function getAndRenderListings(page, endpoint) {
         singleImage.src = listingImageURL;
       }
 
-      singleTitle.textContent = listing.title;
-      singleLatest.textContent = latestBid;
+      singleTitle.textContent = `${listing.title.slice(0, 10)} ...`;
+      singleLatest.textContent = `${listingStatus} bid: ${latestBid}C`;
       singleContainer.append(singleImage, singleTitle, singleLatest);
       singleLink.append(singleContainer);
       listingsContainer.append(singleLink);
@@ -92,7 +124,7 @@ export async function getAndRenderListings(page, endpoint) {
     showMoreButton.textContent = "Whoops! Please reload the page";
     showMoreButton.disabled = false;
   } finally {
-    showMoreButton.classList = "";
+    showMoreButton.classList.remove("animate-pulse");
     showMoreLoader.classList = "";
     isFetching = false;
   }

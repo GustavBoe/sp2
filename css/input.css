@@ -12,6 +12,7 @@
   --font-commisioner: "Commisioner", sans-serif;
   /*Colours for list*/
   --color-listBlue: #366aa5;
+  --color-listBlueShadow: #366aa540;
   --color-listText: #3e3e3e;
   --color-listBreadtext: #bcbcbc;
   --color-listAlert: #a53636;
