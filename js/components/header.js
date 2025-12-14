@@ -73,9 +73,9 @@ export async function displayHeader() {
   mobileLogOutButton.classList.add("text-listAlert");
 
   listLogo.textContent = "List";
-  listLogo.setAttribute("href", "./index.html");
+  listLogo.setAttribute("href", "/index.html");
   homeLink.textContent = "Home";
-  homeLink.setAttribute("href", "./index.html");
+  homeLink.setAttribute("href", "/index.html");
   createLink.textContent = "Create";
   createLink.setAttribute("href", "./listing/create.html");
   profileLink.textContent = "Profile";
@@ -85,7 +85,7 @@ export async function displayHeader() {
   logOutButton.classList.add("cursor-pointer", "text-listAlert");
   logOutButton.addEventListener("click", () => {
     localStorage.clear();
-    location.href = "./index.html";
+    location.href = "/index.html";
   });
 
   if (!isLoggedIn) {
