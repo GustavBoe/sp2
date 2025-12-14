@@ -77,15 +77,15 @@ export async function displayHeader() {
   homeLink.textContent = "Home";
   homeLink.setAttribute("href", "./index.html");
   createLink.textContent = "Create";
-  createLink.setAttribute("href", "/listing/create.html");
+  createLink.setAttribute("href", "./listing/create.html");
   profileLink.textContent = "Profile";
   logInLink.textContent = "Log in";
-  logInLink.setAttribute("href", "/login/index.html");
+  logInLink.setAttribute("href", "./login/index.html");
   logOutButton.textContent = "Log out";
   logOutButton.classList.add("cursor-pointer", "text-listAlert");
   logOutButton.addEventListener("click", () => {
     localStorage.clear();
-    location.href = "/index.html";
+    location.href = "./index.html";
   });
 
   if (!isLoggedIn) {
