@@ -3,13 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <title>Profile</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/profile.js" type="module"></script>
+    <title>Profile || Edit</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../js/editProfile.js" type="module"></script>
   </head>
   <body>
     <header>
@@ -56,19 +52,57 @@
     </header>
 
     <main>
-      <section id="profile-data-container"></section>
-      <div id="profile-loader-container"></div>
-      <div id="active-toggle">
-        <button id="all-listings">All listings</button>
-        <button id="active-listings">Active-listings</button>
-        <button id="wins">Wins</button>
-      </div>
-      <section id="profile-listings-container"></section>
-      <div id="show-more-container">
-        <span id="show-more-loader"></span>
-
-        <button type="button" id="show-more-button"></button>
-      </div>
+      <h1>Edit profile</h1>
+      <form id="profile-form">
+        <div class="avatar">
+          <h2>Icon</h2>
+          <div>
+            <label for="avatarURL">Profile image</label>
+            <input type="url" name="avatarURL" id="avatarURL" />
+            <p>*Please enter a valid, online URL</p>
+          </div>
+        </div>
+        <div class="banner">
+          <h2>Icon</h2>
+          <div>
+            <label for="bannerURL">Banner image</label>
+            <input type="url" name="bannerURL" id="bannerURL" />
+            <p>*Please enter a valid, online URL</p>
+          </div>
+        </div>
+        <div class="bio">
+          <h2>Icon</h2>
+          <div>
+            <label for="bio">Edit your bio</label>
+            <textarea name="bio" id="bio"></textarea>
+          </div>
+        </div>
+        <button>Edit profile</button>
+      </form>
+      <form id="unchangeables">
+        <div class="username">
+          <h2>Icon</h2>
+          <div>
+            <label for="username">Username</label>
+            <input type="text" disabled />
+          </div>
+        </div>
+        <div class="email">
+          <h2>Icon</h2>
+          <div>
+            <label for="email">Email</label
+            ><input type="email" name="email" id="email" disabled />
+          </div>
+        </div>
+        <div>
+          <h2>Icon</h2>
+          <div>
+            <label for="password">Password</label
+            ><input type="password" placeholder="***********" disabled />
+          </div>
+        </div>
+      </form>
+      <button id="back-to-profile">Back to profile</button>
     </main>
     <footer id="footer"></footer>
   </body>

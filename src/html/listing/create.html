@@ -7,12 +7,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script type="module" src="../js/login.js"></script>
+    <title>Create listing</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../js/create.js" type="module"></script>
   </head>
   <body>
-    <header>
+     <header>
       <!-- Header from noroff CSS frameworks Module 2 Lesson 2.3 Responsive Layout Patterns -->
       <nav class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,40 +53,48 @@
           </div>
         </div>
       </nav>
-    </header>
+     </header>
 
     <main>
-      <h1>Login</h1>
-      <form id="login-form">
+      <h1>Create listing</h1>
+      <h3>Required fields</h3>
+      <form id="create-form">
         <div>
-          <h2>Icon</h2>
-          <div>
-            <label for="email">Email*</label>
-            <input name="email" id="email" type="email" required />
-          </div>
-        </div>
-        <div>
-          <h2>Icon</h2>
-          <div>
-            <label for="password">Password*</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              minlength="8"
-              required
-            />
-          </div>
-        </div>
-        <button>Log in</button>
-      </form>
-      <div>
-        <h2>Don´t have a user?</h2>
-        <a href="../register/index.html"
-          ><h2 class="font-bold underline">Register here</h2></a
-        >
+        <label for="title">Add a title</label>
+        <input type="text" id="title" name="title" required></input>
       </div>
+      <div>
+        <label for="endsAt">Select an end-date</label>
+        <div>
+        <h2>Exclamation Icon</h2>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div>
+        <h2>Exclamation Icon</h2>
+        <input type="time" id="time" name="time" required>
+      </div>
+      </div>
+      <h3>Recommended fields</h3>
+      <div>
+      <label for="url">Add an image</label>
+      <input type="text" id="url" name="url">
+      <p>*You must use an accessible, online URL</p>
+    </div>
+    <div>
+      <label for="alt">Describe your image</label>
+      <input type="text" id="alt" name="alt">
+    </div>
+    <div>
+      <label for="description">Add a description</label>
+      <textarea type="" id="description" name="description" cols="20" rows="3"></textarea>
+    </div>
+    <div>
+      <label for="tags">Add tags</label>
+      <input type="text" name="tags" id="tags" placeholder="Sport, gaming etc..">
+    </div>
+        <button>Create listing</button>
+      </form>
     </main>
-    <footer id="footer"></footer>
+     <footer id="footer"></footer>
   </body>
 </html>

@@ -39,16 +39,16 @@ export async function displayHeader() {
   const mobileLogOutButton = document.createElement("p");
 
   mobileHomeLink.textContent = "Home";
-  mobileHomeLink.setAttribute("href", "../index.html");
+  mobileHomeLink.setAttribute("href", "/");
   mobileCreateLink.textContent = "Create";
-  mobileCreateLink.setAttribute("href", "../listing/create.html");
+  mobileCreateLink.setAttribute("href", "./html/listing/create.html");
   mobileProfileLink.textContent = "Profile";
   mobileLogInLink.textContent = "Log in";
-  mobileLogInLink.setAttribute("href", "../login/index.html");
+  mobileLogInLink.setAttribute("href", "./html/login/index.html");
   mobileLogOutButton.textContent = "Log out";
   mobileLogOutButton.addEventListener("click", () => {
     localStorage.clear();
-    location.href = "../index.html";
+    location.href = "/";
   });
 
   let mobileNavElements = [
@@ -73,19 +73,19 @@ export async function displayHeader() {
   mobileLogOutButton.classList.add("text-listAlert");
 
   listLogo.textContent = "List";
-  listLogo.setAttribute("href", "/sp2");
+  listLogo.setAttribute("href", "/");
   homeLink.textContent = "Home";
-  homeLink.setAttribute("href", "/sp2");
+  homeLink.setAttribute("href", "/");
   createLink.textContent = "Create";
-  createLink.setAttribute("href", "./listing/create.html");
+  createLink.setAttribute("href", "./html/listing/create.html");
   profileLink.textContent = "Profile";
   logInLink.textContent = "Log in";
-  logInLink.setAttribute("href", "./login/index.html");
+  logInLink.setAttribute("href", "./html/login/index.html");
   logOutButton.textContent = "Log out";
   logOutButton.classList.add("cursor-pointer", "text-listAlert");
   logOutButton.addEventListener("click", () => {
     localStorage.clear();
-    location.href = "/sp2";
+    location.href = "/";
   });
 
   if (!isLoggedIn) {
@@ -98,13 +98,13 @@ export async function displayHeader() {
       creditsDisplay.textContent = `Credits: ${user.credits}`;
       profileLink.setAttribute(
         "href",
-        `./profile/index.html?id=${profileName}`
+        `./html/profile/index.html?id=${profileName}`
       );
 
       mobileCreditsDisplay.textContent = `Credits: ${user.credits}`;
       mobileProfileLink.setAttribute(
         "href",
-        `../profile/index.html?id=${profileName}`
+        `./html/profile/index.html?id=${profileName}`
       );
 
       desktopLinks.append(

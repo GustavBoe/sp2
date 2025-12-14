@@ -7,9 +7,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <title>Register</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script type="module" src="../js/register.js"></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script type="module" src="../../js/login.js"></script>
   </head>
   <body>
     <header>
@@ -54,23 +54,15 @@
         </div>
       </nav>
     </header>
+
     <main>
-      <h1>Register new user</h1>
-      <form id="register-form">
-        <div>
-          <h2>Icon</h2>
-          <div>
-            <label for="name">Name*</label>
-            <input name="name" id="name" required />
-            <p>*Your username will be shown to others. Be respectful</p>
-          </div>
-        </div>
+      <h1>Login</h1>
+      <form id="login-form">
         <div>
           <h2>Icon</h2>
           <div>
             <label for="email">Email*</label>
             <input name="email" id="email" type="email" required />
-            <p>*Your email must end with “@stud.noroff.no”</p>
           </div>
         </div>
         <div>
@@ -84,15 +76,14 @@
               minlength="8"
               required
             />
-            <p>*Your password must contain 8 characters or more</p>
           </div>
         </div>
-        <button>Create account</button>
+        <button>Log in</button>
       </form>
       <div>
-        <h2>Have a user?</h2>
-        <a href="../login/index.html"
-          ><h2 class="font-bold underline">log in here</h2></a
+        <h2>Don´t have a user?</h2>
+        <a href="../register/index.html"
+          ><h2 class="font-bold underline">Register here</h2></a
         >
       </div>
     </main>
