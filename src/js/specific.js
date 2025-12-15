@@ -137,13 +137,15 @@ async function renderSpecificLeftTop(listing) {
       10
     )} at ${listing.endsAt.slice(11, 19)}`;
   }
-  console.log(listing.description.length);
+
   if (
     listing.description === null ||
     undefined ||
     listing.description.length === 0
   ) {
     specificDescription.textContent = "No description provided";
+    specificDescription.classList.remove("text-left");
+    specificDescription.classList.add("text-center");
   } else {
     specificDescription.textContent = listing.description;
   }
