@@ -23,11 +23,11 @@ loginForm.addEventListener("submit", async (event) => {
     addToLocalStorage("profileName", profileName);
     addToLocalStorage("apiKey", NOROFF_KEY);
     loginForm.classList = "";
-    location.href = "../index.html";
+    location.href = "../../index.html";
   } catch (error) {
     loginForm.classList = "";
     console.error("Failed to log in user:", error);
     alert(`Error: ${error.message}`);
-    location.href = "./index.html";
+    location.href = "./login.html";
   }
 });
