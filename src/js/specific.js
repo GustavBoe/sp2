@@ -203,7 +203,7 @@ async function SpecificRightBottom(listing) {
   const bidButton = document.createElement("button");
   const logInLink = document.createElement("button");
   logInLink.addEventListener("click", () => {
-    location.href = "../login/index.html";
+    location.href = "./login.html";
   });
   const editLink = document.createElement("button");
   editLink.addEventListener("click", () => {
