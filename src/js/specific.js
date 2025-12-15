@@ -209,7 +209,7 @@ async function SpecificRightBottom(listing) {
   });
   const editLink = document.createElement("button");
   editLink.addEventListener("click", () => {
-    location.href = `./edit.html?id=${PARAMETER_ID}`;
+    location.href = `./editPost.html?id=${PARAMETER_ID}`;
   });
   editLink.textContent = "Edit listing";
   bidInput.type = "number";
