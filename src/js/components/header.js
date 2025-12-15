@@ -41,10 +41,10 @@ export async function displayHeader() {
   mobileHomeLink.textContent = "Home";
   mobileHomeLink.setAttribute("href", "/");
   mobileCreateLink.textContent = "Create";
-  mobileCreateLink.setAttribute("href", "./src/html/listing/create.html");
+  mobileCreateLink.setAttribute("href", "./create.html");
   mobileProfileLink.textContent = "Profile";
   mobileLogInLink.textContent = "Log in";
-  mobileLogInLink.setAttribute("href", "./src/html/login/index.html");
+  mobileLogInLink.setAttribute("href", "./login.html");
   mobileLogOutButton.textContent = "Log out";
   mobileLogOutButton.addEventListener("click", () => {
     localStorage.clear();
@@ -77,10 +77,10 @@ export async function displayHeader() {
   homeLink.textContent = "Home";
   homeLink.setAttribute("href", "/");
   createLink.textContent = "Create";
-  createLink.setAttribute("href", "./src/html/listing/create.html");
+  createLink.setAttribute("href", "./create.html");
   profileLink.textContent = "Profile";
   logInLink.textContent = "Log in";
-  logInLink.setAttribute("href", "./src/html/login/index.html");
+  logInLink.setAttribute("href", "./login.html");
   logOutButton.textContent = "Log out";
   logOutButton.classList.add("cursor-pointer", "text-listAlert");
   logOutButton.addEventListener("click", () => {
@@ -96,15 +96,12 @@ export async function displayHeader() {
       const user = await getProfileData(OWNER_URL);
 
       creditsDisplay.textContent = `Credits: ${user.credits}`;
-      profileLink.setAttribute(
-        "href",
-        `./src/html/profile/index.html?id=${profileName}`
-      );
+      profileLink.setAttribute("href", `./profile.html?id=${profileName}`);
 
       mobileCreditsDisplay.textContent = `Credits: ${user.credits}`;
       mobileProfileLink.setAttribute(
         "href",
-        `./src/html/profile/index.html?id=${profileName}`
+        `./profile.html?id=${profileName}`
       );
 
       desktopLinks.append(
