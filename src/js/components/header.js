@@ -21,7 +21,7 @@ async function getProfileData(url) {
 }
 export async function displayHeader() {
   listLogo.addEventListener("click", () => {
-    location.href = "../index.html";
+    location.href = "/";
   });
 
   const homeLink = document.createElement("a");
@@ -41,10 +41,10 @@ export async function displayHeader() {
   mobileHomeLink.textContent = "Home";
   mobileHomeLink.setAttribute("href", "/");
   mobileCreateLink.textContent = "Create";
-  mobileCreateLink.setAttribute("href", "./html/listing/create.html");
+  mobileCreateLink.setAttribute("href", "./src/html/listing/create.html");
   mobileProfileLink.textContent = "Profile";
   mobileLogInLink.textContent = "Log in";
-  mobileLogInLink.setAttribute("href", "./html/login/index.html");
+  mobileLogInLink.setAttribute("href", "./src/html/login/index.html");
   mobileLogOutButton.textContent = "Log out";
   mobileLogOutButton.addEventListener("click", () => {
     localStorage.clear();
@@ -77,10 +77,10 @@ export async function displayHeader() {
   homeLink.textContent = "Home";
   homeLink.setAttribute("href", "/");
   createLink.textContent = "Create";
-  createLink.setAttribute("href", "./html/listing/create.html");
+  createLink.setAttribute("href", "./src/html/listing/create.html");
   profileLink.textContent = "Profile";
   logInLink.textContent = "Log in";
-  logInLink.setAttribute("href", "./html/login/index.html");
+  logInLink.setAttribute("href", "./src/html/login/index.html");
   logOutButton.textContent = "Log out";
   logOutButton.classList.add("cursor-pointer", "text-listAlert");
   logOutButton.addEventListener("click", () => {
@@ -98,13 +98,13 @@ export async function displayHeader() {
       creditsDisplay.textContent = `Credits: ${user.credits}`;
       profileLink.setAttribute(
         "href",
-        `./html/profile/index.html?id=${profileName}`
+        `./src/html/profile/index.html?id=${profileName}`
       );
 
       mobileCreditsDisplay.textContent = `Credits: ${user.credits}`;
       mobileProfileLink.setAttribute(
         "href",
-        `./html/profile/index.html?id=${profileName}`
+        `../src/html/profile/index.html?id=${profileName}`
       );
 
       desktopLinks.append(
