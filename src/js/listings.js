@@ -8,9 +8,9 @@ import {
   showMoreLoader,
   LISTINGS_ENDPOINT,
 } from "./const/const.js";
-import { displayHeader } from "./components/header.js";
+import { displayIndexHeader } from "./components/indexHeader.js";
 import { displayFooter } from "./components/footer.js";
-displayHeader();
+displayIndexHeader();
 displayFooter();
 let active = false;
 
