@@ -44,7 +44,7 @@ async function renderSpecific() {
 
   SpecificRightBottom(listing);
 }
-async function renderSpecificLeftTop(listing) {
+export async function renderSpecificLeftTop(listing) {
   const specificTitle = document.createElement("h1");
   specificTitle.classList.add(
     "text-center",
@@ -115,7 +115,10 @@ async function renderSpecificLeftTop(listing) {
     "flex",
     "flex-row",
     "flex-wrap",
-    "justify-around"
+    "justify-around",
+    "pb-5",
+    "border-b-1",
+    "border-listBreadtext"
   );
   //Checks
 
@@ -198,11 +201,51 @@ async function SpecificRightBottom(listing) {
   //Bidding section
   const biddingSection = document.createElement("div");
   const biddingStatus = document.createElement("h2");
+  biddingStatus.classList.add(
+    "text-md",
+    "text-listText",
+    "text-center",
+    "font-lexend",
+    "font-semibold"
+  );
   const biddingContainer = document.createElement("div");
   const bidForm = document.createElement("form");
   const fieldContainer = document.createElement("div");
+  fieldContainer.classList.add(
+    "mt-5",
+    "flex",
+    "flex-row",
+    "w-60",
+    "justify-around"
+  );
+  const fieldAmountContainer = document.createElement("div");
+  fieldAmountContainer.classList.add(
+    "flex",
+    "flex-row",
+    "items-center",
+    "border",
+    "border-listBlue",
+    "divide-x-1",
+    "divide-listBlue",
+    "rounded-sm"
+  );
+  const creditsC = document.createElement("p");
+  creditsC.textContent = "C";
+  creditsC.classList.add("h-10", "p-2", "text-listBlue");
   const bidInput = document.createElement("input");
   const bidButton = document.createElement("button");
+  bidButton.classList.add(
+    "h-10",
+    "pr-2",
+    "pl-2",
+    "rounded",
+    "bg-listBlue",
+    "text-white",
+    "hover:cursor-pointer",
+    "active:border",
+    "active:bg-white",
+    "active:text-listBlue"
+  );
   const logInLink = document.createElement("button");
   logInLink.addEventListener("click", () => {
     location.href = "./login.html";
@@ -212,11 +255,31 @@ async function SpecificRightBottom(listing) {
     location.href = `./editPost.html?id=${PARAMETER_ID}`;
   });
   editLink.textContent = "Edit listing";
+  editLink.classList.add(
+    "mx-auto",
+    "mt-5",
+    "h-10",
+    "pr-2",
+    "pl-2",
+    "rounded",
+    "bg-listBlue",
+    "text-white",
+    "hover:cursor-pointer",
+    "active:border",
+    "active:bg-white",
+    "active:text-listBlue"
+  );
+
   bidInput.type = "number";
   bidInput.name = "amount";
   bidInput.id = "amount";
   bidInput.min = `${latestBid + 1}`;
+  bidInput.minLength = 1;
+  bidInput.maxLength = 5;
   bidInput.required = true;
+  bidInput.placeholder = "Bid";
+  bidInput.classList.add("w-20", "h-10", "pl-[12px]");
+  fieldAmountContainer.append(bidInput, creditsC);
 
   bidButton.textContent = "Place bid";
   bidForm.addEventListener("submit", async (event) => {
@@ -249,7 +312,7 @@ async function SpecificRightBottom(listing) {
   }
 
   if (isLoggedIn && active === true && listing.seller.name !== profileName) {
-    fieldContainer.append(bidInput, bidButton);
+    fieldContainer.append(fieldAmountContainer, bidButton);
     bidForm.append(fieldContainer);
     biddingContainer.append(bidForm);
   }
@@ -259,18 +322,38 @@ async function SpecificRightBottom(listing) {
   }
   if (listing.seller.name === profileName) {
     biddingContainer.append(editLink);
+    biddingSection.classList.add("flex", "flex-col", "items-center");
   }
 
   biddingSection.append(biddingStatus, biddingContainer);
 
   //History section
   const biddingHistoryDisplay = document.createElement("div");
-  biddingHistoryDisplay.classList = "py-10 container mx-auto px-5";
+  biddingHistoryDisplay.classList.add(
+    "py-10",
+    "container",
+    "mx-auto",
+    "px-5",
+    "flex",
+    "flex-col",
+    "items-center",
+    "md:max-h-80",
+    "md:overflow-auto"
+  );
   const biddingHistoryHeading = document.createElement("h3");
+  biddingHistoryHeading.classList.add(
+    "mt-10",
+    "text-center",
+    "text-md",
+    "text-listText",
+    "font-lexend",
+    "font-semibold"
+  );
   const biddingHistoryContainer = document.createElement("div");
   biddingHistoryContainer.classList = "relative";
   const biddingLeftLine = document.createElement("div");
-  biddingLeftLine.classList = "border-r-4 border-black absolute h-full top-0";
+  biddingLeftLine.classList =
+    "border-r-2 border-listBlueShadow absolute h-full top-0";
   biddingLeftLine.style.left = "9px";
 
   const biddingHistory = document.createElement("ul");
@@ -278,6 +361,7 @@ async function SpecificRightBottom(listing) {
 
   if (latestBid === 0) {
     biddingHistoryHeading.textContent = "No bids to show!";
+    biddingHistoryHeading.classList.add("mb-20");
     biddingHistoryDisplay.classList = "";
     biddingHistoryDisplay.append(biddingHistoryHeading);
   } else {
@@ -293,34 +377,26 @@ async function SpecificRightBottom(listing) {
 
       const timelineCircle = document.createElement("div");
       timelineCircle.classList =
-        "bg-gray-800 z-10 rounded-full border-4 border-black h-5 w-5";
-
-      const timelineLine = document.createElement("div");
-      timelineLine.classList = "bg-black h-1 w-6 items-center  ml-4 mt-1";
+        "bg-listBlue z-10 rounded-full border-4 border-listBlue h-5 w-5";
 
       const bidContentContainer = document.createElement("div");
       bidContentContainer.classList = "flex-1 ml-4 z-10 font-medium";
-      const bidContainer = document.createElement("div");
-      bidContainer.classList =
-        "order-1 space-y-2 bg-gray-800 rounded-lg shadow-only transition-ease lg:w-5/12 px-6 py-4";
 
       const bidderAmount = document.createElement("h3");
-      bidderAmount.classList = "mb-3 font-bold text-white text-lg";
+      bidderAmount.classList = "mb-3 font-bold text-listText text-lg";
 
       const bidderBreak = document.createElement("hr");
+      bidderBreak.classList.add("text-listBreadtext");
 
       const bidderTimeStamp = document.createElement("p");
-      bidderTimeStamp.classList = "pb-4 text-sm text-gray-100";
+      bidderTimeStamp.classList = "pb-4 text-sm text-listBreadtext";
       bidderAmount.textContent = `${bid.bidder.name} bid ${bid.amount} credits`;
       bidderTimeStamp.textContent = `On ${bid.created.slice(
         0,
         10
       )} at ${bid.created.slice(11, 19)}`;
-      timelineCircle.append(timelineLine);
 
-      bidContainer.append(bidderAmount, bidderBreak, bidderTimeStamp);
-
-      bidContentContainer.append(bidContainer);
+      bidContentContainer.append(bidderAmount, bidderBreak, bidderTimeStamp);
 
       bidderContainer.append(timelineCircle, bidContentContainer);
 
@@ -330,13 +406,14 @@ async function SpecificRightBottom(listing) {
 
       biddingHistoryContainer.append(biddingLeftLine, biddingHistory);
 
-      biddingHistoryDisplay.append(
-        biddingHistoryHeading,
-        biddingHistoryContainer
-      );
+      biddingHistoryDisplay.append(biddingHistoryContainer);
     });
   }
-  specificContainerRB.append(biddingSection, biddingHistoryDisplay);
+  specificContainerRB.append(
+    biddingSection,
+    biddingHistoryHeading,
+    biddingHistoryDisplay
+  );
 }
 
 renderSpecific();

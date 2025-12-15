@@ -55,26 +55,28 @@
       </nav>
     </header>
 
-    <main>
-      <section><button id="delete-button">Delete listing</button></section>
-      <section>
-      <h1>Edit listing</h1>
-      <h3>Required fields</h3>
-      <form id="edit-form">
-        <div>
-        <label for="title">Add a title</label>
-        <input type="text" id="title" name="title" required></input>
+    <main id="main"
+      class="flex flex-col items-center md:grid md:grid-cols-2 md:border-x md:border-x-listGreyShadow max-w-[1215px] md:mx-auto md:min-h-screen">
+      <section id="specific-container-left-top"  class="hidden md:flex md:flex-col md:items-center md:mb-10 "></section>
+      <section class="min-h-screen flex flex-col items-center">
+      <h1 class="text-2xl text-listBlue text-center font-lexend font-semibold mt-10 pb-5 w-70 border-b border-listBreadtext">Edit listing</h1>
+      
+      <h3 class="text-lg text-listBlue text-center font-lexend font-semibold mt-5 mb-5">Required fields</h3>
+      <form id="edit-form" class="flex flex-col items-center">
+        <div class="flex flex-col">
+        <label for="title" class="text-md text-listBlue font-lexend font-semibold">Edit title</label>
+        <input type="text" id="title" name="title" class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-70 pl-3" required></input>
       </div>
       
-      <h3>Recommended fields</h3>
-      <div>
-      <label for="url">Add an image</label>
-      <input type="text" id="url" name="url">
-      <p>*You must use an accessible, online URL</p>
+      <h3 class="text-lg text-listBlue text-center font-lexend font-semibold mt-5 mb-5">Recommended fields</h3>
+      <div class="flex flex-col">
+      <label for="url"class="text-md text-listBlue font-lexend font-semibold">Edit image</label>
+      <input type="text" id="url" name="url" class="text-listText text-sm font-commisioner border border-listBreadtext/40 rounded-sm h-10 w-70 pl-3">
+      <p class="text-xs text-listBreadtext mb-5">*You must use an accessible, online URL</p>
     </div>
-    <div>
-      <label for="alt">Describe your image</label>
-      <input type="text" id="alt" name="alt">
+    <div class="flex flex-col">
+      <label for="alt" class="text-md text-listBlue font-lexend font-semibold">Describe your image</label>
+      <input type="text" id="alt" name="alt" class="text-listText text-sm font-commisioner border border-listBreadtext/40 rounded-sm h-10 w-70 pl-3">
     </div>
     <div>
       <label for="description">Add a description</label>

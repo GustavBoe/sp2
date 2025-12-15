@@ -74,7 +74,6 @@ export const showMoreButton = document.getElementById("show-more-button");
 export const backToProfile = document.getElementById("back-to-profile");
 export const profileForm = document.getElementById("profile-form");
 
-export const deleteButton = document.getElementById("delete-button");
 export const profileDataContainer = document.getElementById(
   "profile-data-container"
 );

@@ -39,13 +39,13 @@ createForm.addEventListener("submit", async (event) => {
     const response = await post(LISTINGS_ENDPOINT, formFields);
 
     createForm.classList = "";
-    location.href = "../index.html";
+    location.href = "../../index.html";
   } catch (error) {
     createForm.classList = "";
     console.error("Failed to create listing:", error);
     alert(`Error: ${error.message}`);
     location.href = "./create.html";
   } finally {
-    createForm.classList = "";
+    createForm.classList.remove("animate-pulse");
   }
 });
