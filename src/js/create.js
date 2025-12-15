@@ -44,7 +44,7 @@ createForm.addEventListener("submit", async (event) => {
     createForm.classList = "";
     console.error("Failed to create listing:", error);
     alert(`Error: ${error.message}`);
-    location.href = "/index.html";
+    location.href = "./create.html";
   } finally {
     createForm.classList = "";
   }

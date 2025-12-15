@@ -58,16 +58,16 @@ editForm.addEventListener("submit", async (event) => {
     alert(`Error: ${error.message}`);
     location.href = "/index.html";
   } finally {
-    editForm.classList = "";
+    editForm.classList.remove("animate-pulse");
   }
 });
 async function deleteListing() {
   try {
     await del(SPECIFIC_LISTING_URL);
   } catch (error) {
-    alert("Something went wrong! Redirecting to listing page");
+    alert("Something went wrong! Redirecting to editing page");
     console.error(error);
-    location.href = `./edit.html?id=${PARAMETER_ID}`;
+    location.href = `./editPost.html?id=${PARAMETER_ID}`;
   }
 }
 
@@ -76,7 +76,7 @@ deleteButton.addEventListener("click", () => {
   if (confirm) {
     try {
       deleteListing();
-      location.href = `../profile/index.html?id=${profileName}`;
+      location.href = `./profile.html?id=${profileName}`;
     } catch (error) {
       alert("Something went wrong, redirecting to home");
       location.href("../index.html");
