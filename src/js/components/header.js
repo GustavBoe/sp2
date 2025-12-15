@@ -104,7 +104,7 @@ export async function displayHeader() {
       mobileCreditsDisplay.textContent = `Credits: ${user.credits}`;
       mobileProfileLink.setAttribute(
         "href",
-        `../src/html/profile/index.html?id=${profileName}`
+        `./src/html/profile/index.html?id=${profileName}`
       );
 
       desktopLinks.append(
