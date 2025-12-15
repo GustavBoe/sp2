@@ -95,7 +95,7 @@ export async function getAndRenderListings(page, endpoint) {
       singleLatest.classList.add("text-listBreadtext", "text-center");
       singleLink.setAttribute(
         "href",
-        `./listing/specific.html?id=${listing.id}`
+        `./src/html/specific.html?id=${listing.id}`
       );
       let listingImage = listing.media;
 

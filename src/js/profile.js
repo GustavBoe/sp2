@@ -137,10 +137,7 @@ async function getAndRenderProfileListings(page) {
       const singleImage = document.createElement("img");
       const singleTitle = document.createElement("h2");
       const singleLatest = document.createElement("p");
-      singleLink.setAttribute(
-        "href",
-        `../listing/specific.html?id=${listing.id}`
-      );
+      singleLink.setAttribute("href", `./specific.html?id=${listing.id}`);
       let listingImage = listing.media;
 
       if (listingImage.length === 0) {
@@ -188,7 +185,7 @@ allListingsToggle.addEventListener("click", () => {
     getAndRenderProfileListings(currentPage);
   } catch (error) {
     alert(error, "Could not get all listings, refreshing the page..");
-    location.href = "/index.html";
+    location.href = `./profile.html?id=${listing.seller.name}`;
   }
 });
 activeListingsToggle.addEventListener("click", () => {
@@ -200,6 +197,7 @@ activeListingsToggle.addEventListener("click", () => {
     getAndRenderProfileListings(currentPage);
   } catch (error) {
     alert(error, "Could not get active listings, refreshing the page..");
+    location.href = `./profile.html?id=${listing.seller.name}`;
   }
 });
 wonListingsToggle.addEventListener("click", () => {

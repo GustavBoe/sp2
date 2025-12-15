@@ -92,7 +92,7 @@ async function renderSpecificLeftTop(listing) {
   if (isLoggedIn) {
     specificCreator.setAttribute(
       "href",
-      `../profile/index.html?id=${listing.seller.name}`
+      `./profile.html?id=${listing.seller.name}`
     );
   }
 
