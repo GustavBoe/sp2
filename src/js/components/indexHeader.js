@@ -13,7 +13,7 @@ errorMessage.textContent = "Unable to get user information";
 
 export async function displayIndexHeader() {
   listLogo.addEventListener("click", () => {
-    location.href = "/";
+    location.href = "./index.html";
   });
 
   const homeLink = document.createElement("a");
@@ -31,7 +31,7 @@ export async function displayIndexHeader() {
   const mobileLogOutButton = document.createElement("p");
 
   mobileHomeLink.textContent = "Home";
-  mobileHomeLink.setAttribute("href", "/");
+  mobileHomeLink.setAttribute("href", "./index.html");
   mobileCreateLink.textContent = "Create";
   mobileCreateLink.setAttribute("href", "./src/html/create.html");
   mobileProfileLink.textContent = "Profile";
@@ -40,7 +40,7 @@ export async function displayIndexHeader() {
   mobileLogOutButton.textContent = "Log out";
   mobileLogOutButton.addEventListener("click", () => {
     localStorage.clear();
-    location.href = "/";
+    location.href = "./index.html";
   });
 
   let mobileNavElements = [
@@ -65,7 +65,7 @@ export async function displayIndexHeader() {
   mobileLogOutButton.classList.add("text-listAlert");
 
   listLogo.textContent = "List";
-  listLogo.setAttribute("href", "/");
+  listLogo.setAttribute("href", "./index.html");
   homeLink.textContent = "Home";
   homeLink.setAttribute("href", "/");
   createLink.textContent = "Create";
@@ -77,7 +77,7 @@ export async function displayIndexHeader() {
   logOutButton.classList.add("cursor-pointer", "text-listAlert");
   logOutButton.addEventListener("click", () => {
     localStorage.clear();
-    location.href = "/";
+    location.href = "./index.html";
   });
 
   if (!isLoggedIn) {
