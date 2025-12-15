@@ -67,7 +67,7 @@ export async function displayIndexHeader() {
   listLogo.textContent = "List";
   listLogo.setAttribute("href", "./index.html");
   homeLink.textContent = "Home";
-  homeLink.setAttribute("href", "/");
+  homeLink.setAttribute("href", "./index.html");
   createLink.textContent = "Create";
   createLink.setAttribute("href", "./src/html/create.html");
   profileLink.textContent = "Profile";
