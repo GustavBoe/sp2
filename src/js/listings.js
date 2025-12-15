@@ -130,11 +130,21 @@ export async function getAndRenderListings(page, endpoint) {
   }
   allListingsToggle.addEventListener("click", () => {
     active = false;
+    activeListingsToggle.classList.remove("toggle-active");
+    allListingsToggle.classList.add("toggle-active");
+    activeListingsToggle.classList.add("text-listBreadtext");
+    allListingsToggle.classList.remove("text-listBreadtext");
+
     listingsContainer.textContent = "";
     getAndRenderListings(currentPage, endpoint);
   });
   activeListingsToggle.addEventListener("click", () => {
     active = true;
+    allListingsToggle.classList.remove("toggle-active");
+    activeListingsToggle.classList.add("toggle-active");
+    activeListingsToggle.classList.remove("text-listBreadtext");
+    allListingsToggle.classList.add("text-listBreadtext");
+
     listingsContainer.textContent = "";
     getAndRenderListings(currentPage, endpoint);
   });

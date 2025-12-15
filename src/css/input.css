@@ -15,5 +15,12 @@
   --color-listBlueShadow: #366aa540;
   --color-listText: #3e3e3e;
   --color-listBreadtext: #bcbcbc;
+  --color-listGreyShadow: #cacaca40;
   --color-listAlert: #a53636;
+}
+@utility toggle-active {
+  background-color: #366aa5;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0px 3px 5px #366aa530;
 }

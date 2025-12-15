@@ -56,9 +56,20 @@
     </header>
     <main class="flex-col">
       <section class="max-w-[390px] sm:max-w-[1080px] mx-auto items-center">
-        <div id="active-toggle" class="mx-auto w-fit mt-15 mb-10">
-          <button id="all-listings" class="pr-5 pl-5">All listings</button>
-          <button id="active-listings" class="pr-5 pl-5">
+        <div
+          id="active-toggle"
+          class="mx-auto w-fit mt-15 mb-10 border rounded-sm border-listBreadtext bg-listGreyShadow"
+        >
+          <button
+            id="all-listings"
+            class="pl-5 pr-5 pt-2 pb-2 text-lg rounded-l-sm toggle-active"
+          >
+            All listings
+          </button>
+          <button
+            id="active-listings"
+            class="pl-5 pr-5 pt-2 pb-2 text-lg rounded-r-sm text-listBreadtext"
+          >
             Active-listings
           </button>
         </div>
