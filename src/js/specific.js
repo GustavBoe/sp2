@@ -44,7 +44,7 @@ async function renderSpecific() {
 
   SpecificRightBottom(listing);
 }
-export async function renderSpecificLeftTop(listing) {
+async function renderSpecificLeftTop(listing) {
   const specificTitle = document.createElement("h1");
   specificTitle.classList.add(
     "text-center",
@@ -152,7 +152,7 @@ export async function renderSpecificLeftTop(listing) {
   } else {
     specificDescription.textContent = listing.description;
   }
-  if (listing.tags.length === 0) {
+  if (listing.tags.length !== 0) {
     listing.tags.forEach((tag) => {
       const tagElement = document.createElement("p");
       tagElement.classList.add(
@@ -250,6 +250,21 @@ async function SpecificRightBottom(listing) {
   logInLink.addEventListener("click", () => {
     location.href = "./login.html";
   });
+  logInLink.classList.add(
+    "mx-auto",
+    "mt-5",
+    "h-10",
+    "pr-2",
+    "pl-2",
+    "rounded",
+    "bg-listBlue",
+    "text-white",
+    "hover:cursor-pointer",
+    "active:border",
+    "active:bg-white",
+    "active:text-listBlue"
+  );
+
   const editLink = document.createElement("button");
   editLink.addEventListener("click", () => {
     location.href = `./editPost.html?id=${PARAMETER_ID}`;

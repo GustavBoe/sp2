@@ -101,7 +101,7 @@ async function renderProfileData(profile) {
   backgroundContainer.classList.add(
     "min-w-full",
     "pr-2",
-    "bg-listBlue/50",
+    "bg-listBlue/75",
     "flex",
     "flex-row",
     "items-center",
