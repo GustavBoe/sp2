@@ -1,5 +1,5 @@
 import { post } from "./api/apiClient.js";
-import { KEY_ENDPOINT, REGISTER_ENDPOINT } from "./const/const.js";
+import { REGISTER_ENDPOINT } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
 import { displayFooter } from "./components/footer.js";
 displayHeader();
@@ -14,11 +14,10 @@ registerForm.addEventListener("submit", async (event) => {
 
   try {
     const response = await post(REGISTER_ENDPOINT, formFields);
-    const noroffKey = await post(KEY_ENDPOINT);
-    console.log(noroffKey);
+
     console.log("User created successfully!", response.data);
     registerForm.classList = "";
-    location.href = "../login/index.html";
+    location.href = "./login.html";
   } catch (error) {
     registerForm.classList = "";
     console.error("Failed to create user:", error);
