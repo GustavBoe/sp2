@@ -567,6 +567,9 @@
   .h-64 {
     height: calc(var(--spacing) * 64);
   }
+  .h-100 {
+    height: calc(var(--spacing) * 100);
+  }
   .h-full {
     height: 100%;
   }
@@ -682,6 +685,9 @@
   }
   .max-w-\[755px\] {
     max-width: 755px;
+  }
+  .max-w-\[780px\] {
+    max-width: 780px;
   }
   .max-w-\[1000px\] {
     max-width: 1000px;
@@ -1166,6 +1172,14 @@
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .default\:toggle-active {
+    &:default {
+      background-color: #366aa5;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0px 3px 5px #366aa530;
+    }
+  }
   .hover\:animate-bounce {
     &:hover {
       @media (hover: hover) {
@@ -1221,6 +1235,14 @@
       @media (hover: hover) {
         color: var(--color-white);
       }
+    }
+  }
+  .focus\:toggle-active {
+    &:focus {
+      background-color: #366aa5;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0px 3px 5px #366aa530;
     }
   }
   .active\:border {

@@ -180,6 +180,7 @@ async function getAndRenderProfileListings(page) {
 allListingsToggle.addEventListener("click", () => {
   active = false;
   wins = false;
+
   profileListingsContainer.textContent = "";
   try {
     getAndRenderProfileListings(currentPage);
@@ -191,6 +192,7 @@ allListingsToggle.addEventListener("click", () => {
 activeListingsToggle.addEventListener("click", () => {
   active = true;
   wins = false;
+
   profileListingsContainer.textContent = "";
 
   try {
@@ -202,6 +204,7 @@ activeListingsToggle.addEventListener("click", () => {
 });
 wonListingsToggle.addEventListener("click", () => {
   wins = true;
+
   profileListingsContainer.textContent = "";
   try {
     getAndRenderProfileListings(currentPage);
@@ -209,6 +212,7 @@ wonListingsToggle.addEventListener("click", () => {
     alert(error, "Could not get active listings, refreshing the page..");
   }
 });
+
 showMoreButton.addEventListener("click", () => {
   if (!isFetching) {
     currentPage++;

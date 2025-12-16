@@ -71,7 +71,7 @@ export const allListingsToggle = document.getElementById("all-listings");
 
 export const activeListingsToggle = document.getElementById("active-listings");
 
-export const wonListingsToggle = document.getElementById("wins");
+export const wonListingsToggle = document.getElementById("won-listings");
 
 export const showMoreContainer = document.getElementById("show-more-container");
 
