@@ -1150,6 +1150,12 @@
   .text-listText {
     color: var(--color-listText);
   }
+  .text-listText\/40 {
+    color: color-mix(in srgb, #3e3e3e 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-listText) 40%, transparent);
+    }
+  }
   .text-white {
     color: var(--color-white);
   }

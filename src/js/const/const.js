@@ -54,11 +54,17 @@ export const specificListing = document.getElementById("listing");
 
 // Components
 export const errorMessage = document.createElement("p");
+
 export const listLogo = document.getElementById("list-logo");
+
 export const header = document.getElementById("header");
+
 export const desktopLinks = document.getElementById("desktop-links");
+
 export const mobileLinks = document.getElementById("mobile-links");
+
 export const footer = document.getElementById("footer");
+
 export const showMoreLoader = document.getElementById("show-more-loader");
 
 export const allListingsToggle = document.getElementById("all-listings");
@@ -72,8 +78,12 @@ export const showMoreContainer = document.getElementById("show-more-container");
 export const showMoreButton = document.getElementById("show-more-button");
 
 export const backToProfile = document.getElementById("back-to-profile");
+
 export const profileForm = document.getElementById("profile-form");
 
+export const unchangeables = document.getElementById("unchangeables");
+
+// Containers
 export const profileDataContainer = document.getElementById(
   "profile-data-container"
 );
@@ -82,7 +92,6 @@ export const profileLoaderContainer = document.getElementById(
   "profile-loader-container"
 );
 
-// Containers
 export const listingsContainer = document.getElementById("listings-container");
 
 export const specificContainerLT = document.getElementById(

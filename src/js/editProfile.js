@@ -6,13 +6,13 @@ import {
   PARAMETER_ID,
   USER_ENDPOINT,
   profileForm,
+  unchangeables,
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
 
 import { displayFooter } from "./components/footer.js";
 displayHeader();
 displayFooter();
-const profileForm = document.getElementById("profile-form");
 
 backToProfile.addEventListener("click", () => {
   location.href = `./profile.html?id=${profileName}`;
@@ -23,6 +23,8 @@ async function fillProfileFields() {
   profileForm.avatarURL.value = profileData.avatar.url;
   profileForm.bannerURL.value = profileData.banner.url;
   profileForm.bio.value = profileData.bio;
+  unchangeables.username.value = profileData.name;
+  unchangeables.email.value = profileData.email;
 }
 fillProfileFields();
 profileForm.addEventListener("submit", async (event) => {
