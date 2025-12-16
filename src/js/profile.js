@@ -19,6 +19,7 @@ import {
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
 import { displayFooter } from "./components/footer.js";
+
 displayHeader();
 displayFooter();
 profileLoaderContainer.classList =
@@ -52,25 +53,73 @@ async function renderProfileData(profile) {
   if (profileName === profile.name) {
     //section append ( email and Edit profile button )
   }
-  const profileBanner = document.createElement("img");
+
   const profileInfo = document.createElement("div");
+  const bannerImage = document.createElement("img");
   const profileImgContainer = document.createElement("div");
   const profileImg = document.createElement("img");
   const profileTextContainer = document.createElement("div");
   const userName = document.createElement("p");
   const userEmail = document.createElement("p");
   const userBio = document.createElement("p");
-  profileBanner.src = profile.banner.url;
+  userName.classList.add("p-2");
+  userEmail.classList.add("p-2");
+  userBio.classList.add("p-2", "overflow:hidden");
+  const bannerImageContainer = document.createElement("div");
+  bannerImage.src = profile.banner.url;
+  bannerImage.alt = profile.banner.alt;
+
+  bannerImage.classList.add(
+    "h-55",
+    "w-full",
+    "object-cover",
+    "object-[10%_20%]",
+    "m-0"
+  );
+  bannerImageContainer.append(bannerImage);
   profileImg.src = profile.avatar.url;
   profileImg.alt = profile.avatar.alt;
-
+  profileImg.classList.add(
+    "w-20",
+    "h-20",
+    "md:w-30",
+    "md:h-30",
+    "rounded-full"
+  );
   userName.textContent = profile.name;
   userEmail.textContent = profile.email;
   userBio.textContent = profile.bio;
   profileImgContainer.append(profileImg);
   profileTextContainer.append(userName, userEmail, userBio);
-  profileInfo.append(profileImgContainer, profileTextContainer);
-  profileDataContainer.append(profileBanner, profileInfo);
+  profileTextContainer.classList.add("flex", "flex-col");
+
+  const backgroundContainer = document.createElement("div");
+  backgroundContainer.append(profileImgContainer, profileTextContainer);
+  backgroundContainer.classList.add(
+    "min-w-fit",
+    "pr-2",
+    "bg-listBlue/50",
+
+    "flex",
+    "flex-row",
+    "h-fit",
+    "rounded-r-lg",
+    "rounded-l-full"
+  );
+  profileInfo.classList.add(
+    "absolute",
+    "inset-0",
+    "flex",
+    "flex-row",
+    "pt-20",
+    "pl-10",
+    "pb-5",
+    "text-white"
+  );
+
+  profileInfo.append(backgroundContainer);
+
+  profileDataContainer.append(bannerImage, profileInfo);
 }
 async function getAndRenderProfileListings(page) {
   isFetching = true;
