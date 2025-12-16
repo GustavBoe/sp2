@@ -153,7 +153,7 @@ async function getAndRenderProfileListings(page) {
     }
 
     if (wins === true) {
-      CHOSEN_URL = `${WON_LISTINGS_URL}&limit=12`;
+      CHOSEN_URL = `${WON_LISTINGS_URL}?page=${page}&limit=12&_wins=true&_bids=true`;
     }
 
     const response = await get(CHOSEN_URL);
@@ -184,6 +184,7 @@ async function getAndRenderProfileListings(page) {
           latestBid = sortedBids[0].amount;
         }
       }
+
       if (todaysDate.toISOString() < listing.endsAt) {
         listingStatus = "Active";
       } else {
@@ -234,7 +235,9 @@ async function getAndRenderProfileListings(page) {
         let listingImageURL = listingImage[0].url;
         singleImage.src = listingImageURL;
       }
-
+      if (wins === true) {
+        singleLatest.classList.add("hidden");
+      }
       singleLatest.textContent = latestBid;
       singleTitle.textContent = `${listing.title.slice(0, 10)} ...`;
       singleLatest.textContent = `${listingStatus} bid: ${latestBid}C`;
@@ -249,7 +252,7 @@ async function getAndRenderProfileListings(page) {
       profileListingsContainer.append(singleLink);
     });
     if (meta.isLastPage) {
-      showMoreButton.style.display = "none";
+      showMoreContainer.classList.add("hidden");
     } else {
       showMoreButton.textContent = "Show more";
       showMoreButton.disabled = false;
@@ -258,8 +261,9 @@ async function getAndRenderProfileListings(page) {
     console.error("Failed to load listings", error);
     showMoreButton.textContent = "Whoops! Please reload the page";
     showMoreButton.disabled = false;
+    showMoreContainer.classList.add("hidden");
   } finally {
-    showMoreButton.classList = "";
+    showMoreButton.classList.remove("animate-pulse");
     showMoreLoader.classList = "";
     isFetching = false;
   }

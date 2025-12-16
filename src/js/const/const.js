@@ -42,7 +42,7 @@ export let ALL_USER_LISTINGS_ENDPOINT = `${USER_ENDPOINT}/listings?_seller=true&
 
 export let ACTIVE_USER_LISTINGS_ENDPOINT = `${ALL_USER_LISTINGS_ENDPOINT}&_active=true`;
 
-export let WON_LISTINGS_URL = `${USER_ENDPOINT}?_wins=true`;
+export let WON_LISTINGS_URL = `${USER_ENDPOINT}`;
 
 //Images
 
