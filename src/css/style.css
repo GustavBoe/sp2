@@ -442,6 +442,12 @@
   .mr-3 {
     margin-right: calc(var(--spacing) * 3);
   }
+  .mr-10 {
+    margin-right: calc(var(--spacing) * 10);
+  }
+  .mr-12 {
+    margin-right: calc(var(--spacing) * 12);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -730,6 +736,9 @@
   .max-w-90 {
     max-width: calc(var(--spacing) * 90);
   }
+  .max-w-\[30rem\] {
+    max-width: 30rem;
+  }
   .max-w-\[320px\] {
     max-width: 320px;
   }
@@ -827,6 +836,9 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
   }
   .justify-items-center {
     justify-items: center;

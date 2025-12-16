@@ -77,6 +77,8 @@ export const showMoreContainer = document.getElementById("show-more-container");
 
 export const showMoreButton = document.getElementById("show-more-button");
 
+export const editButtonContainer = document.getElementById("button-container");
+
 export const backToProfile = document.getElementById("back-to-profile");
 
 export const profileForm = document.getElementById("profile-form");

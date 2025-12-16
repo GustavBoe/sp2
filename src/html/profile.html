@@ -24,7 +24,10 @@
               List
             </div>
 
-            <div id="desktop-links" class="hidden md:flex space-x-4"></div>
+            <div
+              id="desktop-links"
+              class="hidden md:flex space-x-4 text-listBlue"
+            ></div>
 
             <button
               class="md:hidden"
@@ -61,7 +64,7 @@
         id="profile-data-container"
         class="relative h-64 w-full"
       ></section>
-
+      <div id="button-container" class="flex flex-row justify-end w-full"></div>
       <div id="profile-loader-container"></div>
       <div
         id="active-toggle"
@@ -86,7 +89,10 @@
           Wins
         </button>
       </div>
-      <section id="profile-listings-container"></section>
+      <section
+        id="profile-listings-container"
+        class="grid gap-2 grid-cols-2 sm:grid-cols-4 max-w-[390px] sm:max-w-[1080px] justify-items-center mx-auto relative mb-10"
+      ></section>
       <div id="show-more-container">
         <span id="show-more-loader"></span>
 

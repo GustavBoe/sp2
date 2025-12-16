@@ -15,6 +15,7 @@ import {
   showMoreContainer,
   profileDataContainer,
   profileLoaderContainer,
+  editButtonContainer,
   profileName,
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
@@ -33,7 +34,7 @@ let active = false;
 let wins = false;
 let isFetching = false;
 let currentPage = 1;
-function renderErrorPage() {}
+
 function showPageLoader() {
   profileLoaderContainer.style.display = "block";
 }
@@ -50,10 +51,7 @@ async function getProfileData(url) {
   }
 }
 async function renderProfileData(profile) {
-  if (profileName === profile.name) {
-    //section append ( email and Edit profile button )
-  }
-
+  const sendToEdit = document.createElement("a");
   const profileInfo = document.createElement("div");
   const bannerImage = document.createElement("img");
   const profileImgContainer = document.createElement("div");
@@ -121,7 +119,15 @@ async function renderProfileData(profile) {
     "pb-5",
     "text-white"
   );
-
+  if (profileName === profile.name) {
+    sendToEdit.setAttribute("href", "./editProfile.html");
+    sendToEdit.textContent = "Edit profile";
+    sendToEdit.classList =
+      " bg-white text-listBlue p-2 mr-12 border border-listBlue rounded-sm text-xs md:text-sm hover:bg-listBlue hover:text-white";
+    editButtonContainer.append(sendToEdit);
+  } else {
+    sendToEdit.classList.add("hidden");
+  }
   profileInfo.append(backgroundContainer);
 
   profileDataContainer.append(bannerImage, profileInfo);
@@ -185,12 +191,39 @@ async function getAndRenderProfileListings(page) {
       }
 
       const singleLink = document.createElement("a");
+      singleLink.classList.add(
+        "w-36",
+        "h-48",
+        "border-1",
+        "border-listBlueShadow",
+        "rounded-sm",
+        "mb-5",
+        "active:border-listBlue",
+        "hover:border-listBlue",
+        "active:border-3",
+        "hover:border-3"
+      );
       const singleContainer = document.createElement("div");
+
       const statusContainer = document.createElement("div");
       const singleStatus = document.createElement("h2");
       const singleImage = document.createElement("img");
+      singleImage.classList.add(
+        "object-cover",
+        "w-full",
+        "h-32",
+        "rounded-t-sm"
+      );
       const singleTitle = document.createElement("h2");
+      singleTitle.classList.add(
+        "text-listText",
+        "text-center",
+        "font-xs",
+        "font-lexend",
+        "font-semibold"
+      );
       const singleLatest = document.createElement("p");
+      singleLatest.classList.add("text-listBreadtext", "text-center");
       singleLink.setAttribute("href", `./specific.html?id=${listing.id}`);
       let listingImage = listing.media;
 
@@ -202,9 +235,9 @@ async function getAndRenderProfileListings(page) {
         singleImage.src = listingImageURL;
       }
 
-      singleTitle.textContent = listing.title;
-      singleStatus.textContent = listingStatus;
       singleLatest.textContent = latestBid;
+      singleTitle.textContent = `${listing.title.slice(0, 10)} ...`;
+      singleLatest.textContent = `${listingStatus} bid: ${latestBid}C`;
       statusContainer.append(singleStatus);
       singleContainer.append(
         statusContainer,

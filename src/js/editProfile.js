@@ -7,6 +7,7 @@ import {
   USER_ENDPOINT,
   profileForm,
   unchangeables,
+  OWNER_URL,
 } from "./const/const.js";
 import { displayHeader } from "./components/header.js";
 
@@ -18,7 +19,7 @@ backToProfile.addEventListener("click", () => {
   location.href = `./profile.html?id=${profileName}`;
 });
 async function fillProfileFields() {
-  const profileResponse = await get(USER_ENDPOINT);
+  const profileResponse = await get(OWNER_URL);
   const profileData = profileResponse.data;
   profileForm.avatarURL.value = profileData.avatar.url;
   profileForm.bannerURL.value = profileData.banner.url;
@@ -40,7 +41,7 @@ profileForm.addEventListener("submit", async (event) => {
   };
 
   try {
-    const response = await put(USER_ENDPOINT, formFields);
+    const response = await put(OWNER_URL, formFields);
     alert("Edited profile! Redirecting..");
     profileForm.classList = "";
     location.href = `./profile.html?id=${PARAMETER_ID}`;
