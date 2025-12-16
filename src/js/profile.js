@@ -91,17 +91,22 @@ async function renderProfileData(profile) {
   userBio.textContent = profile.bio;
   profileImgContainer.append(profileImg);
   profileTextContainer.append(userName, userEmail, userBio);
-  profileTextContainer.classList.add("flex", "flex-col");
+  profileTextContainer.classList.add(
+    "flex",
+    "flex-col",
+    "text-xs",
+    "md:text-sm"
+  );
 
   const backgroundContainer = document.createElement("div");
   backgroundContainer.append(profileImgContainer, profileTextContainer);
   backgroundContainer.classList.add(
-    "min-w-fit",
+    "min-w-full",
     "pr-2",
     "bg-listBlue/50",
-
     "flex",
     "flex-row",
+    "items-center",
     "h-fit",
     "rounded-r-lg",
     "rounded-l-full"
