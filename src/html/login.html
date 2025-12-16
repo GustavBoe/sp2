@@ -55,37 +55,95 @@
       </nav>
     </header>
 
-    <main>
-      <h1>Login</h1>
-      <form id="login-form">
-        <div>
-          <h2>Icon</h2>
-          <div>
-            <label for="email">Email*</label>
-            <input name="email" id="email" type="email" required />
-          </div>
-        </div>
-        <div>
-          <h2>Icon</h2>
-          <div>
-            <label for="password">Password*</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              minlength="8"
-              required
-            />
-          </div>
-        </div>
-        <button>Log in</button>
-      </form>
-      <div>
-        <h2>Don´t have a user?</h2>
-        <a href="./register.html"
-          ><h2 class="font-bold underline">Register here</h2></a
+    <main
+      class="md:border-x md:border-x-listGreyShadow max-w-[755px] md:mx-auto"
+    >
+      <section class="min-h-screen flex flex-col items-center mx-auto">
+        <h1
+          class="text-2xl text-listBlue text-center font-lexend font-semibold mt-15 mb-5 pb-5"
         >
-      </div>
+          Login
+        </h1>
+        <form id="login-form">
+          <div class="flex flex-col mx-auto mb-5 pr-5 w-fit">
+            <div class="flex flex-row">
+              <label
+                for="email"
+                class="text-md text-listBlue font-lexend font-semibold pl-9 place-self-start"
+                >Email</label
+              >
+            </div>
+            <div class="flex flex-row items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-8 text-listBlue pr-2 mb-3"
+              >
+                <path
+                  d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"
+                />
+                <path
+                  d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"
+                />
+              </svg>
+              <input
+                name="email"
+                id="email"
+                type="email"
+                class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-60 pl-3 mb-3"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col mx-auto mb-10 pr-5 w-fit">
+            <div class="flex flex-row">
+              <label
+                for="password"
+                class="text-md text-listBlue font-lexend font-semibold pl-9 place-self-start"
+                >Password</label
+              >
+            </div>
+            <div class="flex flex-row items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-8 text-listBlue pr-2 mb-3"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <input
+                type="password"
+                name="password"
+                id="password"
+                minlength="8"
+                class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-60 pl-3 mb-3"
+                required
+              />
+            </div>
+          </div>
+          <div class="mx-auto w-fit">
+            <button
+              class="w-40 h-12 text-md text-listBlue font-lexend font-semibold border border-listBlue rounded-sm hover:bg-listBlue hover:text-white active:bg-listBlueShadow"
+            >
+              Log in
+            </button>
+          </div>
+        </form>
+        <div class="flex flex-row text-listBlue mt-7">
+          <h2>Don´t have a user?</h2>
+          <a href="./register.html"
+            ><h2 class="font-bold underline pl-2">Register here</h2></a
+          >
+        </div>
+      </section>
     </main>
     <footer id="footer"></footer>
   </body>
