@@ -55,45 +55,46 @@
       </nav>
      </header>
      
-    <main class="min-h-screen">
-      <h1>Create listing</h1>
-      <h3>Required fields</h3>
+    <main>
+      <section class="min-h-screen flex flex-col justify-center items-center mb-20 mx-auto">
+      <h1 class="text-2xl text-listBlue text-center font-lexend font-semibold mt-10 pb-5 w-80 border-b border-listBreadtext">Create listing</h1>
+      <h3 class="text-lg text-listBlue text-center font-lexend font-semibold mt-5 mb-5">Required fields</h3>
       <form id="create-form">
-        <div>
-        <label for="title">Add a title</label>
-        <input type="text" id="title" name="title" required></input>
+        <div class="flex flex-col">
+        <label for="title" class="text-md text-listBlue font-lexend font-semibold">Create title</label> 
+        <input type="text" id="title" name="title" class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-60 pl-3 mb-3" required></input>
       </div>
-      <div>
-        <label for="endsAt">Select an end-date</label>
-        <div>
-        <h2>Exclamation Icon</h2>
-        <input type="date" id="date" name="date" required>
+      <div class="flex flex-col border-b pb-5 border-listBreadtext">
+        <label for="endsAt"class="text-md text-listBlue font-lexend font-semibold">Select an end-date</label>
+        
+        <input type="date" id="date" name="date" class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-35 pl-3 mb-3" required>
+        <input type="time" id="time" name="time" class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-20 pl-3 mb-3" required>
       </div>
-      <div>
-        <h2>Exclamation Icon</h2>
-        <input type="time" id="time" name="time" required>
-      </div>
-      </div>
-      <h3>Recommended fields</h3>
-      <div>
-      <label for="url">Add an image</label>
-      <input type="text" id="url" name="url">
-      <p>*You must use an accessible, online URL</p>
+      
+  
+     
+      <h3 class="text-lg text-listBlue text-center font-lexend font-semibold mt-5 mb-5">Recommended fields</h3>
+      <div class="flex flex-col">
+      <label for="url"class="text-md text-listBlue font-lexend font-semibold">Add an image</label>
+      <input type="text" id="url" name="url"  class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-60 pl-3">
+      <p class="text-xs text-listBreadtext mb-5">*You must use an accessible, online URL</p>
     </div>
-    <div>
-      <label for="alt">Describe your image</label>
-      <input type="text" id="alt" name="alt">
+    <div class="flex flex-col">
+      <label for="alt" class="text-md text-listBlue font-lexend font-semibold">Describe your image</label>
+      <input type="text" id="alt" name="alt" class="text-listText border border-listBreadtext/40 rounded-sm h-10 w-60 pl-3 mb-5">
     </div>
-    <div>
-      <label for="description">Add a description</label>
-      <textarea type="" id="description" name="description" cols="20" rows="3"></textarea>
+    <div class="flex flex-col">
+      <label for="description" class="text-md text-listBlue font-lexend font-semibold">Add a description</label>
+      <textarea type="" id="description" name="description" cols="20" rows="3" class="text-listText text-sm font-commisioner border border-listBreadtext/40 rounded-sm  pl-3 mb-5"></textarea>
     </div>
-    <div>
-      <label for="tags">Add tags</label>
-      <input type="text" name="tags" id="tags" placeholder="Sport, gaming etc..">
+     <div  class="flex flex-col">
+      <label for="tags" class="text-md text-listBlue font-lexend font-semibold">Add tags</label>
+      <input type="text" name="tags" id="tags" class="text-listText text-sm font-commisioner border border-listBreadtext/40 rounded-sm h-10 w-70 pl-3 mb-5" placeholder="Sport, gaming etc..">
     </div>
-        <button>Create listing</button>
-      </form>
+    <div class="flex justify-center items-center">
+        <button class="w-60 h-12 mt-10 text-md  text-listBlue font-lexend font-semibold border border-listBlue rounded-sm hover:bg-listBlue hover:text-white  active:bg-listBlueShadow">Create listing</button>
+      </div></form>
+      </section>
     </main>
      <footer id="footer"></footer>
   </body>
