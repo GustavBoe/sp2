@@ -41,7 +41,6 @@ export async function getAndRenderListings(page, endpoint) {
 
     const response = await get(CHOSEN_URL);
     const listings = response.data.reverse();
-
     const meta = response.meta;
 
     listings.forEach((listing) => {
@@ -72,7 +71,7 @@ export async function getAndRenderListings(page, endpoint) {
         "active:border-listBlue",
         "hover:border-listBlue",
         "active:border-3",
-        "hover:border-3"
+        "hover:border-3",
       );
       const singleContainer = document.createElement("div");
 
@@ -81,7 +80,7 @@ export async function getAndRenderListings(page, endpoint) {
         "object-cover",
         "w-full",
         "h-32",
-        "rounded-t-sm"
+        "rounded-t-sm",
       );
       const singleTitle = document.createElement("p");
       singleTitle.classList.add(
@@ -89,13 +88,13 @@ export async function getAndRenderListings(page, endpoint) {
         "text-center",
         "font-xs",
         "font-lexend",
-        "font-semibold"
+        "font-semibold",
       );
       const singleLatest = document.createElement("p");
       singleLatest.classList.add("text-listBreadtext", "text-center");
       singleLink.setAttribute(
         "href",
-        `./src/html/specific.html?id=${listing.id}`
+        `./src/html/specific.html?id=${listing.id}`,
       );
       let listingImage = listing.media;
 

@@ -18,7 +18,6 @@ loginForm.addEventListener("submit", async (event) => {
 
     const accessToken = response.data.accessToken;
     const profileName = response.data.name;
-
     addToLocalStorage("accessToken", accessToken);
     addToLocalStorage("profileName", profileName);
     addToLocalStorage("apiKey", NOROFF_KEY);

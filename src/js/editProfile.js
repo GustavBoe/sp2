@@ -44,13 +44,13 @@ profileForm.addEventListener("submit", async (event) => {
     const response = await put(OWNER_URL, formFields);
     alert("Edited profile! Redirecting..");
     profileForm.classList = "";
-    location.href = `./profile.html?id=${PARAMETER_ID}`;
+    location.href = `./profile.html?id=${profileName}`;
   } catch (error) {
     profileForm.classList.remove("animate-pulse");
     console.error("Failed to edit profile:", error);
     alert(`Error: ${error.message}`);
     alert("Redirecting to profile page");
-    location.href = `./profile.html?id=${PARAMETER_ID}`;
+    location.href = `./profile.html?id=${profileName}`;
   } finally {
     profileForm.classList.remove("animate-pulse");
   }

@@ -58,7 +58,7 @@ export async function displayIndexHeader() {
       "py-2",
       "pl-50",
       "text-right",
-      "text-listBlue"
+      "text-listBlue",
     );
   });
   mobileLogOutButton.classList.remove("text-listBlue");
@@ -90,13 +90,13 @@ export async function displayIndexHeader() {
       creditsDisplay.textContent = `Credits: ${user.credits}`;
       profileLink.setAttribute(
         "href",
-        `./src/html/profile.html?id=${profileName}`
+        `./src/html/profile.html?id=${profileName}`,
       );
 
       mobileCreditsDisplay.textContent = `Credits: ${user.credits}`;
       mobileProfileLink.setAttribute(
         "href",
-        `./src/html/profile.html?id=${profileName}`
+        `./src/html/profile.html?id=${profileName}`,
       );
 
       desktopLinks.append(
@@ -104,7 +104,7 @@ export async function displayIndexHeader() {
         createLink,
         creditsDisplay,
         profileLink,
-        logOutButton
+        logOutButton,
       );
 
       mobileLinks.append(
@@ -112,11 +112,13 @@ export async function displayIndexHeader() {
         mobileCreateLink,
         mobileCreditsDisplay,
         mobileProfileLink,
-        mobileLogOutButton
+        mobileLogOutButton,
       );
     } catch (error) {
+      console.log(errorMessage);
       desktopLinks.append(errorMessage);
       mobileLinks.append(errorMessage);
+      location.href("./html/login.html");
     }
   }
 }
