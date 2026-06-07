@@ -1,4 +1,4 @@
-# CSS Frameworks CA
+# Semester Project 2
 
 ![image](https://i.imghippo.com/files/byzK2264kJE.png)
 
